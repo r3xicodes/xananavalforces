@@ -9,7 +9,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
     
-    <style>
+    <link rel="stylesheet" href="styles.css">
         /* Base Styles */
         * {
             margin: 0;
@@ -688,16 +688,40 @@
                 <span class="logo-text">XNN / RXN</span>
             </div>
             
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="leadership.html">Leadership</a></li>
-                    <li><a href="fleets.html">Fleets</a></li>
-                    <li><a href="operations.html">Operations</a></li>
-                    <li><a href="history.html" class="active">History</a></li>
-                    <li><a href="news.html">News</a></li>
-                    <li><a href="careers.html">Careers</a></li>
+            <nav role="navigation" aria-label="Primary navigation">
+                <ul id="primary-nav" class="nav-menu" role="menubar">
+                    <li role="none"><a role="menuitem" href="index.html">Home</a></li>
+                    <li role="none"><a role="menuitem" href="about.html">About</a></li>
+                    <li role="none"><a role="menuitem" href="leadership.html">Leadership</a></li>
+                    <li role="none" class="has-flyout">
+                        <button class="flyout-toggle" aria-haspopup="true" aria-expanded="false">Fleets</button>
+                        <div class="flyout-panel" role="menu" aria-hidden="true">
+                            <div class="flyout-column">
+                                <a href="fleets.html">Fleet Overview</a>
+                                <a href="fleets.html#order-of-battle">Order of Battle</a>
+                            </div>
+                            <div class="flyout-column">
+                                <a href="fleets.html#carriers">Carriers</a>
+                                <a href="fleets.html#submarines">Submarines</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li role="none" class="has-flyout">
+                        <button class="flyout-toggle" aria-haspopup="true" aria-expanded="false">Operations</button>
+                        <div class="flyout-panel" role="menu" aria-hidden="true">
+                            <div class="flyout-column">
+                                <a href="operations.html">Operations Overview</a>
+                                <a href="operations.html#deployments">Deployments</a>
+                            </div>
+                            <div class="flyout-column">
+                                <a href="operations.html#rules-of-engagement">Rules of Engagement</a>
+                                <a href="operations.html#security">Security</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li role="none"><a role="menuitem" href="history.html" class="active">History</a></li>
+                    <li role="none"><a role="menuitem" href="news.html">News</a></li>
+                    <li role="none"><a role="menuitem" href="careers.html">Careers</a></li>
                 </ul>
             </nav>
             
@@ -734,6 +758,18 @@
             </div>
         </div>
     </header>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay" aria-hidden="true">
+        <div class="search-container">
+            <form id="site-search" role="search">
+                <label for="site-search-input" class="sr-only">Search the site</label>
+                <input id="site-search-input" class="search-input" type="search" placeholder="Search ships, news, and pages..." aria-label="Search the site" />
+                <button type="submit" class="search-submit">Search</button>
+            </form>
+            <div id="search-results" class="search-results" role="region" aria-live="polite"></div>
+        </div>
+    </div>
 
     <main id="main-content">
         <section class="page-header">

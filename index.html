@@ -9,396 +9,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
     
-    <style>
-        /* CSS Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --navy-blue: #1B2951;
-            --white: #FFFFFF;
-            --slate-gray: #64748B;
-            --muted-gold: #B8860B;
-            --light-gray: #F8FAFC;
-            --dark-gray: #334155;
-            --border-color: #E2E8F0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-gray);
-            background-color: var(--white);
-        }
-
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Roboto Condensed', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
-        }
-
-        h1 { font-size: 3rem; }
-        h2 { font-size: 2.25rem; }
-        h3 { font-size: 1.875rem; }
-        h4 { font-size: 1.5rem; }
-        h5 { font-size: 1.25rem; }
-        h6 { font-size: 1.125rem; }
-
-        p {
-            margin-bottom: 1rem;
-            line-height: 1.7;
-        }
-
-        a {
-            color: var(--navy-blue);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--muted-gold);
-        }
-
-        /* Header and Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: var(--navy-blue);
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        header.scrolled {
-            background-color: rgba(27, 41, 81, 0.95);
-            backdrop-filter: blur(10px);
-        }
-
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 80px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo img {
-            width: 50px;
-            height: 50px;
-        }
-
-        .logo-text {
-            color: var(--white);
-            font-family: 'Roboto Condensed', sans-serif;
-            font-weight: 700;
-            font-size: 1.25rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            color: var(--white);
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 0.875rem;
-            letter-spacing: 0.05em;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-menu a:hover,
-        .nav-menu a.active {
-            background-color: rgba(255,255,255,0.1);
-            color: var(--white);
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .search-btn, .language-selector, .accessibility-btn {
-            background: none;
-            border: none;
-            color: var(--white);
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-
-        .search-btn:hover, .language-selector:hover, .accessibility-btn:hover {
-            background-color: rgba(255,255,255,0.1);
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            height: 100vh;
-            background: linear-gradient(rgba(27, 41, 81, 0.4), rgba(27, 41, 81, 0.6)), url('resources/hero-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding-left: 10%;
-            margin-top: 80px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            color: var(--white);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
-
-        .hero-subheading {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .hero-description {
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-size: 0.875rem;
-        }
-
-        .btn-primary {
-            background-color: var(--muted-gold);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background-color: #9A7209;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--white);
-            color: var(--navy-blue);
-        }
-
-        /* Quick Information Bar */
-        .quick-info {
-            background-color: var(--light-gray);
-            padding: 4rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .quick-info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .info-panel {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--navy-blue);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .info-panel:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .info-panel h3 {
-            color: var(--navy-blue);
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-        }
-
-        .info-panel p {
-            color: var(--slate-gray);
-            margin-bottom: 1.5rem;
-        }
-
-        .info-link {
-            color: var(--muted-gold);
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.875rem;
-            letter-spacing: 0.05em;
-        }
-
-        /* Featured Content Grid */
-        .featured-content {
-            padding: 6rem 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            color: var(--navy-blue);
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            color: var(--slate-gray);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .featured-card {
-            background-color: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid var(--border-color);
-        }
-
-        .featured-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-
-        .card-image {
-            height: 200px;
-            background-color: var(--light-gray);
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        .card-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background-color: var(--navy-blue);
-            color: var(--white);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .card-content {
-            padding: 2rem;
-        }
-
-        .card-meta {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 0.875rem;
-            color: var(--slate-gray);
-        }
-
-        .card-meta .authority {
-            color: var(--muted-gold);
-            font-weight: 600;
-        }
-
-        .card-title {
-            color: var(--navy-blue);
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-        }
-
-        .card-excerpt {
-            color: var(--slate-gray);
-            margin-bottom: 1.5rem;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--navy-blue);
-            color: var(--white);
-            padding: 3rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+    <link rel="stylesheet" href="styles.css">            margin-bottom: 2rem;
         }
 
         .footer-section h4 {
@@ -579,21 +190,45 @@
                 <span class="logo-text">XNN / RXN</span>
             </div>
             
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="leadership.html">Leadership</a></li>
-                    <li><a href="fleets.html">Fleets</a></li>
-                    <li><a href="operations.html">Operations</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="news.html">News</a></li>
-                    <li><a href="careers.html">Careers</a></li>
+            <nav role="navigation" aria-label="Primary navigation">
+                <ul id="primary-nav" class="nav-menu" role="menubar">
+                    <li role="none"><a role="menuitem" href="index.html" class="active">Home</a></li>
+                    <li role="none"><a role="menuitem" href="about.html">About</a></li>
+                    <li role="none"><a role="menuitem" href="leadership.html">Leadership</a></li>
+                    <li role="none" class="has-flyout">
+                        <button class="flyout-toggle" aria-haspopup="true" aria-expanded="false">Fleets</button>
+                        <div class="flyout-panel" role="menu" aria-hidden="true">
+                            <div class="flyout-column">
+                                <a href="fleets.html">Fleet Overview</a>
+                                <a href="fleets.html#order-of-battle">Order of Battle</a>
+                            </div>
+                            <div class="flyout-column">
+                                <a href="fleets.html#carriers">Carriers</a>
+                                <a href="fleets.html#submarines">Submarines</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li role="none" class="has-flyout">
+                        <button class="flyout-toggle" aria-haspopup="true" aria-expanded="false">Operations</button>
+                        <div class="flyout-panel" role="menu" aria-hidden="true">
+                            <div class="flyout-column">
+                                <a href="operations.html">Operations Overview</a>
+                                <a href="operations.html#deployments">Deployments</a>
+                            </div>
+                            <div class="flyout-column">
+                                <a href="operations.html#rules-of-engagement">Rules of Engagement</a>
+                                <a href="operations.html#security">Security</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li role="none"><a role="menuitem" href="history.html">History</a></li>
+                    <li role="none"><a role="menuitem" href="news.html">News</a></li>
+                    <li role="none"><a role="menuitem" href="careers.html">Careers</a></li>
                 </ul>
             </nav>
             
             <div class="header-actions">
-                <button class="search-btn" aria-label="Search">
+                <button class="search-btn" aria-label="Open site search" aria-expanded="false">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="m21 21-4.35-4.35"></path>
@@ -619,12 +254,24 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <button class="mobile-menu-toggle" aria-label="Menu">
+                <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false">
                     ☰
                 </button>
             </div>
         </div>
     </header>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="search-overlay" aria-hidden="true">
+        <div class="search-container">
+            <form id="site-search" role="search">
+                <label for="site-search-input" class="sr-only">Search the site</label>
+                <input id="site-search-input" class="search-input" type="search" placeholder="Search ships, news, and pages..." aria-label="Search the site" />
+                <button type="submit" class="search-submit">Search</button>
+            </form>
+            <div id="search-results" class="search-results" role="region" aria-live="polite"></div>
+        </div>
+    </div>
 
     <main id="main-content">
         <!-- Hero Section -->

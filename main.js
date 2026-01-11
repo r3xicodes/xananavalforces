@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeTimeline();
     initializeMobileMenu();
     initializeAccessibility();
+    initializeNavigationAccessibility();
+    initializeSearch();
 });
 
 // Navigation functionality
@@ -42,26 +44,28 @@ function initializeNavigation() {
 // Collapsible panels for About page
 function initializeCollapsiblePanels() {
     const panels = document.querySelectorAll('.collapsible-panel');
-    
+
     panels.forEach(panel => {
         const header = panel.querySelector('.panel-header');
         const content = panel.querySelector('.panel-content');
-        
+
         if (header && content) {
-            header.addEventListener('click', function() {
-                const isOpen = panel.classList.contains('open');
-                
-                // Close all other panels
-                panels.forEach(p => {
-                    p.classList.remove('open');
-                    const c = p.querySelector('.panel-content');
-                    if (c) c.style.display = 'none';
-                });
-                
-                // Toggle current panel
-                if (!isOpen) {
-                    panel.classList.add('open');
-                    content.style.display = 'block';
+            // Make header focusable and announceable
+            header.setAttribute('tabindex', '0');
+            header.setAttribute('role', 'button');
+            header.setAttribute('aria-expanded', panel.classList.contains('open') ? 'true' : 'false');
+
+            function togglePanel() {
+                const isOpen = panel.classList.toggle('open');
+                content.style.display = isOpen ? 'block' : 'none';
+                header.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            }
+
+            header.addEventListener('click', togglePanel);
+            header.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    togglePanel();
                 }
             });
         }
@@ -70,49 +74,84 @@ function initializeCollapsiblePanels() {
 
 // Filter functionality for Fleets and News pages
 function initializeFilters() {
+    // Combined filter support (fleet/type/status) for elements with .filterable-item
     const filterGroups = document.querySelectorAll('.filter-group');
-    
+    const items = document.querySelectorAll('.filterable-item');
+
+    // Track active filters by type
+    const activeFilters = {};
+
+    function applyFilters() {
+        const searchInput = document.querySelector('.search-input');
+        const searchTerm = searchInput ? searchInput.value.trim().toLowerCase() : '';
+
+        items.forEach(item => {
+            let visible = true;
+
+            // Check each active filter type
+            for (const type in activeFilters) {
+                const value = activeFilters[type];
+                if (!value || value === 'all') continue;
+                const itemValue = item.dataset[type];
+                if (!itemValue) { visible = false; break; }
+                if (itemValue.toLowerCase() !== value.toLowerCase()) { visible = false; break; }
+            }
+
+            // Search match (name or class)
+            if (visible && searchTerm) {
+                const nameEl = item.querySelector('.vessel-name');
+                const classEl = item.querySelector('.vessel-class');
+                const text = ((nameEl ? nameEl.textContent : '') + ' ' + (classEl ? classEl.textContent : '')).toLowerCase();
+                if (!text.includes(searchTerm)) visible = false;
+            }
+
+            item.style.display = visible ? 'block' : 'none';
+        });
+    }
+
+    // Initialize filter button groups (buttons with data-filter and data-type)
     filterGroups.forEach(group => {
         const filters = group.querySelectorAll('.filter-btn');
-        const items = document.querySelectorAll('.filterable-item');
-        
-        filters.forEach(filter => {
-            filter.addEventListener('click', function() {
-                const filterValue = this.dataset.filter;
-                
-                // Update active filter
+        if (!filters.length) return;
+        const type = filters[0].dataset.type || 'category';
+
+        filters.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Make this the active button for its group
                 filters.forEach(f => f.classList.remove('active'));
                 this.classList.add('active');
-                
-                // Filter items
-                items.forEach(item => {
-                    if (filterValue === 'all' || item.dataset.category === filterValue) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
+
+                activeFilters[type] = this.dataset.filter;
+                applyFilters();
             });
+
+            // Seed activeFilters from any button already active
+            if (btn.classList.contains('active')) {
+                activeFilters[type] = btn.dataset.filter;
+            }
         });
     });
 
-    // Search functionality
-    const searchInputs = document.querySelectorAll('.search-input');
-    searchInputs.forEach(input => {
-        input.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const searchableItems = document.querySelectorAll('.searchable');
-            
-            searchableItems.forEach(item => {
-                const text = item.textContent.toLowerCase();
-                if (text.includes(searchTerm)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
+    // Wire up search input for vessels
+    const searchInput = document.querySelector('.search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', applyFilters);
+    }
+
+    // News page search box (search articles)
+    const articleSearch = document.querySelector('.search-box');
+    if (articleSearch) {
+        articleSearch.addEventListener('input', function() {
+            const term = this.value.trim().toLowerCase();
+            document.querySelectorAll('.article-item').forEach(article => {
+                const title = article.querySelector('.article-title').textContent.toLowerCase();
+                const excerpt = article.querySelector('.article-excerpt').textContent.toLowerCase();
+                const meta = article.querySelector('.article-meta').textContent.toLowerCase();
+                const visible = title.includes(term) || excerpt.includes(term) || meta.includes(term);
+                article.style.display = visible ? 'block' : 'none';
             });
         });
-    });
+    }
 }
 
 // Interactive timeline for History page
@@ -223,6 +262,143 @@ function initializeAccessibility() {
             }
         }
     });
+}
+
+// Navigation accessibility and flyouts
+function initializeNavigationAccessibility() {
+    // Flyout toggles: click, keyboard (Enter/Space), hover
+    const flyoutToggles = document.querySelectorAll('.flyout-toggle');
+    flyoutToggles.forEach(btn => {
+        const li = btn.closest('.has-flyout');
+        const panel = li.querySelector('.flyout-panel');
+
+        // Ensure initial ARIA states
+        btn.setAttribute('aria-expanded', btn.classList.contains('active') ? 'true' : 'false');
+        panel.setAttribute('aria-hidden', btn.classList.contains('active') ? 'false' : 'true');
+        if (btn.classList.contains('active')) li.classList.add('open');
+
+        btn.addEventListener('click', function(e) {
+            const isOpen = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', String(!isOpen));
+            panel.setAttribute('aria-hidden', String(isOpen));
+            li.classList.toggle('open', !isOpen);
+        });
+
+        btn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); }
+            if (e.key === 'Escape') { this.setAttribute('aria-expanded', 'false'); panel.setAttribute('aria-hidden', 'true'); li.classList.remove('open'); this.focus(); }
+        });
+
+        li.addEventListener('mouseenter', () => { btn.setAttribute('aria-expanded','true'); panel.setAttribute('aria-hidden','false'); li.classList.add('open'); });
+        li.addEventListener('mouseleave', () => { btn.setAttribute('aria-expanded','false'); panel.setAttribute('aria-hidden','true'); li.classList.remove('open'); });
+    });
+
+    // Close any open flyouts when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.has-flyout')) {
+            document.querySelectorAll('.has-flyout.open').forEach(openLi => {
+                const toggle = openLi.querySelector('.flyout-toggle');
+                const panel = openLi.querySelector('.flyout-panel');
+                if (toggle && panel) {
+                    toggle.setAttribute('aria-expanded','false');
+                    panel.setAttribute('aria-hidden','true');
+                    openLi.classList.remove('open');
+                }
+            });
+        }
+    });
+
+    // Mobile menu aria-expanded handling
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    if (mobileToggle) {
+        mobileToggle.setAttribute('aria-expanded', mobileToggle.classList.contains('active') ? 'true' : 'false');
+        mobileToggle.addEventListener('click', function() {
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', String(!expanded));
+            if (navMenu) { navMenu.classList.toggle('active'); navMenu.setAttribute('aria-hidden', String(expanded)); }
+        });
+    }
+}
+
+// Search overlay and site search
+function initializeSearch() {
+    const searchBtn = document.querySelector('.search-btn');
+    const overlay = document.getElementById('search-overlay');
+    const searchForm = document.getElementById('site-search');
+    const searchInput = document.getElementById('site-search-input');
+    const results = document.getElementById('search-results');
+    let index = null;
+
+    function openSearch() {
+        if (!overlay) return;
+        overlay.classList.add('open');
+        overlay.setAttribute('aria-hidden','false');
+        if (searchBtn) searchBtn.setAttribute('aria-expanded','true');
+        if (searchInput) searchInput.focus();
+    }
+
+    function closeSearch() {
+        if (!overlay) return;
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden','true');
+        if (searchBtn) searchBtn.setAttribute('aria-expanded','false');
+        if (searchInput) { searchInput.value = ''; }
+        if (results) results.innerHTML = '';
+        if (searchBtn) searchBtn.focus();
+    }
+
+    async function loadIndex() {
+        if (index) return index;
+        try {
+            const res = await fetch('search-data.json');
+            index = await res.json();
+        } catch (err) {
+            console.warn('Search index not available', err);
+            index = [];
+        }
+        return index;
+    }
+
+    if (searchBtn && overlay && searchForm && searchInput && results) {
+        searchBtn.addEventListener('click', (e) => {
+            const expanded = searchBtn.getAttribute('aria-expanded') === 'true';
+            if (expanded) closeSearch(); else openSearch();
+        });
+
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) closeSearch(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && overlay.classList.contains('open')) closeSearch(); });
+
+        searchForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const q = searchInput.value.trim().toLowerCase();
+            if (!q) { results.innerHTML = '<p>No search query entered.</p>'; return; }
+            const idx = await loadIndex();
+            const hits = idx.filter(item => ((item.title || '') + ' ' + (item.excerpt||'') + ' ' + (item.tags||'')).toLowerCase().includes(q));
+            if (!hits.length) { results.innerHTML = '<p>No results found.</p>'; return; }
+            const ul = document.createElement('ul'); ul.className = 'search-results-list';
+            hits.forEach(h => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="${h.url}"><strong>${h.title}</strong><div class="result-excerpt">${h.excerpt || ''}</div></a>`;
+                ul.appendChild(li);
+            });
+            results.innerHTML = '';
+            results.appendChild(ul);
+        });
+
+        // Live suggestions (debounced)
+        let debounce;
+        searchInput.addEventListener('input', async () => {
+            clearTimeout(debounce);
+            debounce = setTimeout(async () => {
+                const q = searchInput.value.trim().toLowerCase();
+                if (!q) { results.innerHTML = ''; return; }
+                const idx = await loadIndex();
+                const hits = idx.filter(item => ((item.title||'') + ' ' + (item.excerpt||'')).toLowerCase().includes(q)).slice(0,6);
+                results.innerHTML = hits.map(h => `<a class="suggestion" href="${h.url}"><strong>${h.title}</strong><div class="result-excerpt">${h.excerpt||''}</div></a>`).join('');
+            }, 220);
+        });
+    }
 }
 
 // Utility functions

@@ -1,0 +1,14 @@
+[
+  {"title": "Home", "url": "index.html", "excerpt": "Overview and quick links for the Xana Naval Forces site", "tags": "home"},
+  {"title": "About the Imperial Navy", "url": "about.html", "excerpt": "Mission, structure, and core objectives of the Xana National Navy and Royal Xana Navy", "tags": "about mission"},
+  {"title": "Fleets & Vessels", "url": "fleets.html", "excerpt": "Explore fleet composition and vessel capabilities of the Imperial Navy", "tags": "fleets vessels"},
+  {"title": "Order of Battle", "url": "fleets.html#order-of-battle", "excerpt": "Canonical Order of Battle summary and links to major classes", "tags": "order-of-battle oob"},
+  {"title": "Naval Operations", "url": "operations.html", "excerpt": "Current operations, deployments and tasking across the imperial fleets", "tags": "operations deployments"},
+  {"title": "Royal Fleet Concludes Northern Maritime Exercise", "url": "news.html#article-1", "excerpt": "The Royal Xana Navy confirms the conclusion of a multi-fleet maritime exercise in the Northern Sea Zone.", "tags": "training royal navy exercise"},
+  {"title": "Enhanced Maritime Security Patrols Begin", "url": "news.html#article-2", "excerpt": "Xana National Navy commences enhanced maritime security patrols in the Eastern Trade Corridor.", "tags": "security operations"},
+  {"title": "Naval Academy Announces New Officer Training Program", "url": "news.html#article-3", "excerpt": "The Imperial Naval Academy unveils an enhanced officer training curriculum.", "tags": "training academy"},
+  {"title": "Royal Navy Completes State Visit to Allied Nation", "url": "news.html#article-4", "excerpt": "Diplomatic mission strengthens ties and demonstrates naval partnership capabilities.", "tags": "diplomacy"},
+  {"title": "New Radar System Enters Service", "url": "news.html#article-5", "excerpt": "Deployment of the advanced XAR-47 radar system across the fleet.", "tags": "technology modernization"},
+  {"title": "Careers - Join the Navy", "url": "careers.html", "excerpt": "Information on joining the Xana Naval Forces and career paths.", "tags": "careers recruitment"},
+  {"title": "Naval Leadership", "url": "leadership.html", "excerpt": "High Admiralty, command structure, and leadership biographies.", "tags": "leadership admiralty"}
+]

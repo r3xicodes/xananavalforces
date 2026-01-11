@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadership - Xana National Navy & Royal Xana Navy</title>
+    <meta name="description" content="Meet the High Admiralty leadership of the Xana National Navy and Royal Xana Navy.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy-blue: #1B2951;
+            --white: #FFFFFF;
+            --slate-gray: #64748B;
+            --muted-gold: #B8860B;
+            --light-gray: #F8FAFC;
+            --dark-gray: #334155;
+            --border-color: #E2E8F0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            padding-top: 80px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.25rem; }
+        h3 { font-size: 1.875rem; }
+        h4 { font-size: 1.5rem; }
+        h5 { font-size: 1.25rem; }
+        h6 { font-size: 1.125rem; }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--navy-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--muted-gold);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--navy-blue);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo-text {
+            color: var(--white);
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background-color: rgba(255,255,255,0.1);
+            color: var(--white);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .search-btn, .language-selector, .accessibility-btn {
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-btn:hover, .language-selector:hover, .accessibility-btn:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, #2A3B5C 100%);
+            color: var(--white);
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Leadership Content */
+        .leadership-content {
+            padding: 4rem 0;
+        }
+
+        .section-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-description h2 {
+            color: var(--navy-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-description p {
+            font-size: 1.125rem;
+            color: var(--slate-gray);
+            line-height: 1.8;
+        }
+
+        /* High Admiralty Section */
+        .high-admiralty {
+            margin-bottom: 6rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--slate-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* High Admiral Profile */
+        .high-admiral-profile {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .admiral-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .admiral-info {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .admiral-rank {
+            color: var(--muted-gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .admiral-name {
+            color: var(--navy-blue);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .admiral-title {
+            color: var(--slate-gray);
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .admiral-bio {
+            color: var(--dark-gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .admiral-credentials {
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+
+        .credentials-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .credential-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--slate-gray);
+        }
+
+        .credential-icon {
+            width: 16px;
+            height: 16px;
+            color: var(--muted-gold);
+        }
+
+        /* Deputy Admirals Grid */
+        .deputy-admirals {
+            margin-bottom: 6rem;
+        }
+
+        .admirals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .admiral-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .admiral-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .admiral-card-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .admiral-card-content {
+            padding: 2rem;
+        }
+
+        .admiral-card-rank {
+            color: var(--muted-gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .admiral-card-name {
+            color: var(--navy-blue);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .admiral-card-title {
+            color: var(--slate-gray);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .admiral-card-bio {
+            color: var(--dark-gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Chiefs of Naval Staff */
+        .chiefs-section {
+            background-color: var(--light-gray);
+            padding: 4rem 0;
+            margin: 0 -2rem;
+        }
+
+        .chiefs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .chief-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+
+        .chief-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .chief-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--navy-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--white);
+        }
+
+        .chief-name {
+            color: var(--navy-blue);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .chief-position {
+            color: var(--muted-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .chief-description {
+            color: var(--slate-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Message from High Admiralty */
+        .message-section {
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .message-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--light-gray);
+            padding: 3rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--muted-gold);
+        }
+
+        .message-quote {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--navy-blue);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .message-signature {
+            color: var(--slate-gray);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--muted-gold);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--muted-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.875rem;
+        }
+
+        .footer-seal {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--navy-blue);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .high-admiral-profile {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .admiral-image {
+                height: 300px;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .admirals-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chiefs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-container,
+            .container {
+                padding: 0 1rem;
+            }
+
+            .chiefs-section {
+                margin: 0 -1rem;
+            }
+        }
+
+        /* Accessibility Features */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--navy-blue);
+            color: var(--white);
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1001;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* High Contrast Mode */
+        body.high-contrast {
+            --navy-blue: #000000;
+            --white: #FFFFFF;
+            --slate-gray: #666666;
+            --muted-gold: #FFCC00;
+            --light-gray: #F0F0F0;
+            --dark-gray: #000000;
+            --border-color: #000000;
+        }
+
+        /* Font Size Controls */
+        body.font-small { font-size: 14px; }
+        body.font-medium { font-size: 16px; }
+        body.font-large { font-size: 18px; }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="resources/naval-seal.png" alt="Imperial Naval Seal">
+                <span class="logo-text">XNN / RXN</span>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="leadership.html" class="active">Leadership</a></li>
+                    <li><a href="fleets.html">Fleets</a></li>
+                    <li><a href="operations.html">Operations</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="search-btn" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="language-selector" aria-label="Language">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </button>
+                <button class="accessibility-btn contrast-toggle" aria-label="High Contrast">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Menu">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>Naval Leadership</h1>
+                <p>High Admiralty of the Xana National Navy & Royal Xana Navy</p>
+            </div>
+        </section>
+
+        <section class="leadership-content">
+            <div class="container">
+                <div class="section-description reveal">
+                    <h2>Command Structure</h2>
+                    <p>
+                        The Imperial Navy operates under the unified command of the High Admiralty, 
+                        comprising the High Admiral and Deputy High Admirals. This leadership structure 
+                        ensures coordinated operations across both the Xana National Navy and Royal Xana Navy, 
+                        maintaining the empire's maritime supremacy and operational excellence.
+                    </p>
+                </div>
+
+                <!-- High Admiral Section -->
+                <div class="high-admiralty reveal">
+                    <div class="section-header">
+                        <h2>High Admiral</h2>
+                        <p>Supreme Commander of the Imperial Navy</p>
+                    </div>
+                    
+                    <div class="high-admiral-profile">
+                        <img src="resources/admirals/high-admiral-strathtyran.png" alt="High Admiral Strathtyran" class="admiral-image">
+                        <div class="admiral-info">
+                            <div class="admiral-rank">High Admiral</div>
+                            <h3 class="admiral-name">Lord Admiral Marcus Strathtyran</h3>
+                            <p class="admiral-title">Supreme Commander, Imperial Navy | Crown Naval Advisor</p>
+                            <p class="admiral-bio">
+                                Lord Admiral Strathtyran assumed command of the Imperial Navy in 2472 following 
+                                distinguished service across multiple fleet commands. With over thirty years of 
+                                naval experience, he has led operations from anti-piracy patrols to major fleet 
+                                engagements. His leadership has been instrumental in modernizing imperial naval 
+                                capabilities and strengthening maritime alliances. Under his command, the navy 
+                                has achieved unprecedented operational readiness and technological advancement.
+                            </p>
+                            <div class="admiral-credentials">
+                                <div class="credentials-list">
+                                    <div class="credential-item">
+                                        <svg class="credential-icon" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                        </svg>
+                                        <span>Imperial Cross of Valor</span>
+                                    </div>
+                                    <div class="credential-item">
+                                        <svg class="credential-icon" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                        </svg>
+                                        <span>Order of Maritime Excellence</span>
+                                    </div>
+                                    <div class="credential-item">
+                                        <svg class="credential-icon" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                        </svg>
+                                        <span>Crown Service Medal</span>
+                                    </div>
+                                    <div class="credential-item">
+                                        <svg class="credential-icon" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                        </svg>
+                                        <span>Graduate, Imperial Naval Academy</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deputy High Admirals Section -->
+                <div class="deputy-admirals reveal">
+                    <div class="section-header">
+                        <h2>Deputy High Admirals</h2>
+                        <p>Supporting the High Admiral in naval operations and administration</p>
+                    </div>
+                    
+                    <div class="admirals-grid">
+                        <div class="admiral-card">
+                            <img src="resources/admirals/deputy-admiral-chen.png" alt="Deputy Admiral Chen" class="admiral-card-image">
+                            <div class="admiral-card-content">
+                                <div class="admiral-card-rank">Deputy High Admiral</div>
+                                <h4 class="admiral-card-name">Admiral Elena Chen</h4>
+                                <p class="admiral-card-title">Deputy Commander for Operations | XNN Fleet Coordination</p>
+                                <p class="admiral-card-bio">
+                                    Admiral Chen oversees all operational aspects of the Xana National Navy. 
+                                    Her expertise in fleet tactics and strategic planning has been crucial in 
+                                    developing modern naval doctrine. She previously commanded the 3rd Fleet 
+                                    and led successful anti-piracy campaigns in the Eastern Waters.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="admiral-card">
+                            <img src="resources/admirals/deputy-admiral-voss.png" alt="Deputy Admiral Voss" class="admiral-card-image">
+                            <div class="admiral-card-content">
+                                <div class="admiral-card-rank">Deputy High Admiral</div>
+                                <h4 class="admiral-card-name">Admiral Heinrich Voss</h4>
+                                <p class="admiral-card-title">Deputy Commander for Administration | RXN Special Operations</p>
+                                <p class="admiral-card-bio">
+                                    Admiral Voss manages naval administration and oversees Royal Xana Navy 
+                                    special operations. His background in naval intelligence and strategic 
+                                    planning has been vital to imperial maritime security. He directs crown 
+                                    naval activities and ceremonial fleet functions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chiefs of Naval Staff -->
+                <div class="chiefs-section">
+                    <div class="container">
+                        <div class="section-header reveal">
+                            <h2>Chiefs of Naval Staff</h2>
+                            <p>Specialized leadership across key naval domains</p>
+                        </div>
+                        
+                        <div class="chiefs-grid">
+                            <div class="chief-card reveal">
+                                <div class="chief-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="chief-name">Vice Admiral Sarah Kim</h4>
+                                <p class="chief-position">Chief of Fleet Operations</p>
+                                <p class="chief-description">
+                                    Oversees all fleet deployments, training exercises, and operational readiness 
+                                    across both XNN and RXN vessels.
+                                </p>
+                            </div>
+
+                            <div class="chief-card reveal">
+                                <div class="chief-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                        <path d="M2 17l10 5 10-5"></path>
+                                        <path d="M2 12l10 5 10-5"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="chief-name">Vice Admiral David Reeves</h4>
+                                <p class="chief-position">Chief of Naval Intelligence</p>
+                                <p class="chief-description">
+                                    Directs maritime intelligence operations, threat assessment, and strategic 
+                                    analysis for imperial naval security.
+                                </p>
+                            </div>
+
+                            <div class="chief-card reveal">
+                                <div class="chief-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="chief-name">Vice Admiral Maria Santos</h4>
+                                <p class="chief-position">Chief of Naval Logistics</p>
+                                <p class="chief-description">
+                                    Manages fleet supply chains, maintenance operations, and naval infrastructure 
+                                    across all imperial ports.
+                                </p>
+                            </div>
+
+                            <div class="chief-card reveal">
+                                <div class="chief-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="chief-name">Vice Admiral James Wright</h4>
+                                <p class="chief-position">Chief of Personnel</p>
+                                <p class="chief-description">
+                                    Oversees naval recruitment, training programs, career development, and 
+                                    personnel management across all naval forces.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message from High Admiralty -->
+                <div class="message-section reveal">
+                    <div class="message-content">
+                        <blockquote class="message-quote">
+                            "The Imperial Navy stands as the shield of our empire's maritime interests. Through 
+                            the dedication of our sailors and the excellence of our leadership, we maintain the 
+                            naval supremacy that has protected Xanarcica for centuries. Our commitment to 
+                            service, honor, and the Crown remains unwavering."
+                        </blockquote>
+                        <p class="message-signature">— High Admiralty of the Imperial Navy</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="resources/naval-seal.png" alt="Imperial Naval Seal" class="footer-seal">
+                    <h4>Imperial Xana Navy</h4>
+                    <p>Maritime defense force of the Great Holy Xanarcica Empire, protecting imperial interests across all seas.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About the Navy</a>
+                    <a href="leadership.html">Leadership</a>
+                    <a href="fleets.html">Fleet Information</a>
+                    <a href="operations.html">Operations</a>
+                    <a href="careers.html">Join the Navy</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Public Affairs</h4>
+                    <p>Office of Naval Communications</p>
+                    <p>Imperial Naval Headquarters</p>
+                    <p>Xanarcica City, District 1</p>
+                    <a href="mailto:public.affairs@xana.navy">public.affairs@xana.navy</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal Notice</h4>
+                    <p>All content subject to Xaiar Law and Imperial Naval Regulations. Unauthorized reproduction or distribution of classified materials is prohibited.</p>
+                    <a href="#" onclick="return false;">Privacy Policy</a>
+                    <a href="#" onclick="return false;">Terms of Service</a>
+                    <a href="#" onclick="return false;">Accessibility</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2478 Imperial Xana Navy. All rights reserved. | Imperial Date: 2478.3.15 | Standard Date: January 11, 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

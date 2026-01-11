@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operations - Xana National Navy & Royal Xana Navy</title>
+    <meta name="description" content="Current and recent operations of the Xana National Navy and Royal Xana Navy.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy-blue: #1B2951;
+            --white: #FFFFFF;
+            --slate-gray: #64748B;
+            --muted-gold: #B8860B;
+            --light-gray: #F8FAFC;
+            --dark-gray: #334155;
+            --border-color: #E2E8F0;
+            --success-green: #10B981;
+            --warning-orange: #F59E0B;
+            --info-blue: #3B82F6;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            padding-top: 80px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.25rem; }
+        h3 { font-size: 1.875rem; }
+        h4 { font-size: 1.5rem; }
+        h5 { font-size: 1.25rem; }
+        h6 { font-size: 1.125rem; }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--navy-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--muted-gold);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--navy-blue);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo-text {
+            color: var(--white);
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background-color: rgba(255,255,255,0.1);
+            color: var(--white);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .search-btn, .language-selector, .accessibility-btn {
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-btn:hover, .language-selector:hover, .accessibility-btn:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, #2A3B5C 100%);
+            color: var(--white);
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Operations Content */
+        .operations-content {
+            padding: 4rem 0;
+        }
+
+        .operations-overview {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .operations-overview h2 {
+            color: var(--navy-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .operations-overview p {
+            font-size: 1.125rem;
+            color: var(--slate-gray);
+            line-height: 1.8;
+        }
+
+        /* Operations Dashboard */
+        .operations-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .dashboard-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .dashboard-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .dashboard-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+        }
+
+        .icon-active { background-color: var(--success-green); }
+        .icon-training { background-color: var(--info-blue); }
+        .icon-joint { background-color: var(--muted-gold); }
+        .icon-humanitarian { background-color: #8B5CF6; }
+
+        .dashboard-title {
+            color: var(--navy-blue);
+            margin: 0;
+        }
+
+        .dashboard-count {
+            color: var(--slate-gray);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .dashboard-description {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .dashboard-link {
+            color: var(--muted-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Operations List */
+        .operations-section {
+            margin-bottom: 4rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--slate-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .operations-list {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .operation-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+
+        .operation-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .operation-header {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .operation-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .status-active { background-color: var(--success-green); color: var(--white); }
+        .status-completed { background-color: var(--slate-gray); color: var(--white); }
+        .status-planned { background-color: var(--info-blue); color: var(--white); }
+
+        .operation-title {
+            color: var(--navy-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .operation-meta {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.875rem;
+            color: var(--slate-gray);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .operation-content {
+            padding: 2rem;
+        }
+
+        .operation-description {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .operation-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-card {
+            background-color: var(--light-gray);
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .detail-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-label {
+            font-size: 0.875rem;
+            color: var(--slate-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .operation-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .issuing-authority {
+            color: var(--muted-gold);
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .operation-link {
+            color: var(--navy-blue);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Operation Types */
+        .operation-type {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .type-card {
+            flex: 1;
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+
+        .type-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .type-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .type-title {
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+
+        .type-description {
+            color: var(--slate-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--muted-gold);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--muted-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.875rem;
+        }
+
+        .footer-seal {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--navy-blue);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .operations-dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .operation-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .operation-details {
+                grid-template-columns: 1fr;
+            }
+
+            .operation-type {
+                flex-direction: column;
+            }
+
+            .header-container,
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Accessibility Features */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--navy-blue);
+            color: var(--white);
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1001;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* High Contrast Mode */
+        body.high-contrast {
+            --navy-blue: #000000;
+            --white: #FFFFFF;
+            --slate-gray: #666666;
+            --muted-gold: #FFCC00;
+            --light-gray: #F0F0F0;
+            --dark-gray: #000000;
+            --border-color: #000000;
+        }
+
+        /* Font Size Controls */
+        body.font-small { font-size: 14px; }
+        body.font-medium { font-size: 16px; }
+        body.font-large { font-size: 18px; }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="resources/naval-seal.png" alt="Imperial Naval Seal">
+                <span class="logo-text">XNN / RXN</span>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="leadership.html">Leadership</a></li>
+                    <li><a href="fleets.html">Fleets</a></li>
+                    <li><a href="operations.html" class="active">Operations</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="search-btn" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="language-selector" aria-label="Language">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </button>
+                <button class="accessibility-btn contrast-toggle" aria-label="High Contrast">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Menu">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>Naval Operations</h1>
+                <p>Current and Recent Imperial Navy Operations</p>
+            </div>
+        </section>
+
+        <section class="operations-content">
+            <div class="container">
+                <div class="operations-overview reveal">
+                    <h2>Operational Commitments</h2>
+                    <p>
+                        The Imperial Navy maintains continuous operations across maritime domains to protect 
+                        imperial interests, ensure freedom of navigation, and respond to contingencies. Our 
+                        operational tempo reflects the dynamic maritime environment and our commitment to 
+                        naval excellence.
+                    </p>
+                </div>
+
+                <!-- Operations Dashboard -->
+                <div class="operations-dashboard reveal">
+                    <div class="dashboard-card">
+                        <div class="dashboard-header">
+                            <div class="dashboard-icon icon-active">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <circle cx="12" cy="12" r="6"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="dashboard-title">Active Operations</h3>
+                                <p class="dashboard-count">7 Operations Underway</p>
+                            </div>
+                        </div>
+                        <p class="dashboard-description">
+                            Current maritime security, patrol, and response operations across imperial waters 
+                            and international zones.
+                        </p>
+                        <a href="#active-operations" class="dashboard-link">View Active Operations →</a>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="dashboard-header">
+                            <div class="dashboard-icon icon-training">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="dashboard-title">Training & Exercises</h3>
+                                <p class="dashboard-count">4 Exercises This Quarter</p>
+                            </div>
+                        </div>
+                        <p class="dashboard-description">
+                            Fleet exercises, joint training operations, and readiness evaluations to maintain 
+                            operational excellence.
+                        </p>
+                        <a href="#training-exercises" class="dashboard-link">View Training Schedule →</a>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="dashboard-header">
+                            <div class="dashboard-icon icon-joint">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="dashboard-title">Joint Operations</h3>
+                                <p class="dashboard-count">3 Allied Partnerships</p>
+                            </div>
+                        </div>
+                        <p class="dashboard-description">
+                            Combined operations with allied naval forces to enhance interoperability and 
+                            regional security.
+                        </p>
+                        <a href="#joint-operations" class="dashboard-link">View Joint Missions →</a>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="dashboard-header">
+                            <div class="dashboard-icon icon-humanitarian">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="dashboard-title">Humanitarian Missions</h3>
+                                <p class="dashboard-count">2 Active Missions</p>
+                            </div>
+                        </div>
+                        <p class="dashboard-description">
+                            Disaster relief, medical assistance, and humanitarian support operations in 
+                            affected regions.
+                        </p>
+                        <a href="#humanitarian-missions" class="dashboard-link">View Missions →</a>
+                    </div>
+                </div>
+
+                <!-- Operation Types -->
+                <div class="operations-section reveal">
+                    <div class="section-header">
+                        <h2>Operation Categories</h2>
+                        <p>Types of naval operations conducted by the Imperial Navy</p>
+                    </div>
+                    
+                    <div class="operation-type">
+                        <div class="type-card">
+                            <div class="type-icon" style="background-color: var(--success-green);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <circle cx="12" cy="12" r="6"></circle>
+                                    <circle cx="12" cy="12" r="2"></circle>
+                                </svg>
+                            </div>
+                            <h4 class="type-title">Maritime Security</h4>
+                            <p class="type-description">
+                                Continuous patrol and surveillance operations to protect imperial waters, 
+                                combat piracy, and ensure freedom of navigation.
+                            </p>
+                        </div>
+
+                        <div class="type-card">
+                            <div class="type-icon" style="background-color: var(--info-blue);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg>
+                            </div>
+                            <h4 class="type-title">Fleet Exercises</h4>
+                            <p class="type-description">
+                                Large-scale naval exercises to maintain fleet readiness, test new tactics, 
+                                and improve coordination between vessel types.
+                            </p>
+                        </div>
+
+                        <div class="type-card">
+                            <div class="type-icon" style="background-color: var(--muted-gold);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <h4 class="type-title">Diplomatic Missions</h4>
+                            <p class="type-description">
+                                Port visits, naval diplomacy, and ceremonial duties that strengthen international 
+                                relationships and represent imperial interests.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active Operations -->
+                <div class="operations-section" id="active-operations">
+                    <div class="section-header">
+                        <h2>Active Operations</h2>
+                        <p>Currently underway imperial naval operations</p>
+                    </div>
+                    
+                    <div class="operations-list">
+                        <div class="operation-card">
+                            <div class="operation-header">
+                                <span class="operation-status status-active">Active</span>
+                                <h3 class="operation-title">Operation Sea Guardian</h3>
+                                <div class="operation-meta">
+                                    <div class="meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12 6 12 12 16 14"></polyline>
+                                        </svg>
+                                        <span>Started: Imperial Date 2478.2.15</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                        </svg>
+                                        <span>3rd Fleet</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="operation-content">
+                                <p class="operation-description">
+                                    Maritime security operation in the Eastern Trade Corridor focused on protecting 
+                                    imperial merchant vessels and combating piracy. Multiple destroyers and patrol 
+                                    vessels maintain continuous presence along primary shipping lanes.
+                                </p>
+                                <div class="operation-details">
+                                    <div class="detail-card">
+                                        <div class="detail-value">8</div>
+                                        <div class="detail-label">Vessels Involved</div>
+                                    </div>
+                                    <div class="detail-card">
+                                        <div class="detail-value">1,200</div>
+                                        <div class="detail-label">Personnel</div>
+                                    </div>
+                                    <div class="detail-card">
+                                        <div class="detail-value">45</div>
+                                        <div class="detail-label">Days Duration</div>
+                                    </div>
+                                </div>
+                                <div class="operation-footer">
+                                    <span class="issuing-authority">Office of Fleet Operations</span>
+                                    <a href="#" class="operation-link">Full Details →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="operation-card">
+                            <div class="operation-header">
+                                <span class="operation-status status-active">Active</span>
+                                <h3 class="operation-title">Operation Northern Shield</h3>
+                                <div class="operation-meta">
+                                    <div class="meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12 6 12 12 16 14"></polyline>
+                                        </svg>
+                                        <span>Started: Imperial Date 2478.1.20</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                        </svg>
+                                        <span>1st Fleet</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="operation-content">
+                                <p class="operation-description">
+                                    Joint exercise with allied naval forces in the Northern Sea Zone. Operation 
+                                    focuses on anti-submarine warfare, air defense coordination, and maritime 
+                                    interdiction tactics. Includes participation from three allied nations.
+                                </p>
+                                <div class="operation-details">
+                                    <div class="detail-card">
+                                        <div class="detail-value">12</div>
+                                        <div class="detail-label">Vessels Involved</div>
+                                    </div>
+                                    <div class="detail-card">
+                                        <div class="detail-value">2,100</div>
+                                        <div class="detail-label">Personnel</div>
+                                    </div>
+                                    <div class="detail-card">
+                                        <div class="detail-value">30</div>
+                                        <div class="detail-label">Days Duration</div>
+                                    </div>
+                                </div>
+                                <div class="operation-footer">
+                                    <span class="issuing-authority">Joint Operations Command</span>
+                                    <a href="#" class="operation-link">Full Details →</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="operation-card">
+                            <div class="operation-header">
+                                <span class="operation-status status-active">Active</span>
+                                <h3 class="operation-title">Operation Coastal Watch</h3>
+                                <div class="operation-meta">
+                                    <div class="meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12 6 12 12 16 14"></polyline>
+                                        </svg>
+                                        <span>Started: Imperial Date 2478.3.1</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                        </svg>
+                                        <span>Coastal Defense</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="operation-content">
+                                <p class="operation-description">
+                                    Enhanced coastal surveillance and patrol operation along imperial shorelines. 
+                                    Focus on preventing illegal fishing, smuggling, and unauthorized maritime 
+                                    activities. Coordinated with Imperial Coast Guard.
+                                </p>
+                                <div class="operation-details">
+                                    <div class="detail-card">
+                                        <div class="detail-value">15</div>
+                                        <div class="detail-label">Vessels Involved</div>
+                                    </div>
+                                    <div class="detail-card">
+                                        <div class="detail-value">450</div>
+                                        <div class="detail-label">Personnel</div>
+                                    </div>
+                                    <div class="detail-card">
+                                        <div class="detail-value">90</div>
+                                        <div class="detail-label">Days Duration</div>
+                                    </div>
+                                </div>
+                                <div class="operation-footer">
+                                    <span class="issuing-authority">Coastal Defense Command</span>
+                                    <a href="#" class="operation-link">Full Details →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="resources/naval-seal.png" alt="Imperial Naval Seal" class="footer-seal">
+                    <h4>Imperial Xana Navy</h4>
+                    <p>Maritime defense force of the Great Holy Xanarcica Empire, protecting imperial interests across all seas.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About the Navy</a>
+                    <a href="leadership.html">Leadership</a>
+                    <a href="fleets.html">Fleet Information</a>
+                    <a href="operations.html">Operations</a>
+                    <a href="careers.html">Join the Navy</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Public Affairs</h4>
+                    <p>Office of Naval Communications</p>
+                    <p>Imperial Naval Headquarters</p>
+                    <p>Xanarcica City, District 1</p>
+                    <a href="mailto:public.affairs@xana.navy">public.affairs@xana.navy</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal Notice</h4>
+                    <p>All content subject to Xaiar Law and Imperial Naval Regulations. Unauthorized reproduction or distribution of classified materials is prohibited.</p>
+                    <a href="#" onclick="return false;">Privacy Policy</a>
+                    <a href="#" onclick="return false;">Terms of Service</a>
+                    <a href="#" onclick="return false;">Accessibility</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2478 Imperial Xana Navy. All rights reserved. | Imperial Date: 2478.3.15 | Standard Date: January 11, 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

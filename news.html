@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Dispatches - Xana National Navy & Royal Xana Navy</title>
+    <meta name="description" content="Official news releases and dispatches from the Xana National Navy and Royal Xana Navy.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy-blue: #1B2951;
+            --white: #FFFFFF;
+            --slate-gray: #64748B;
+            --muted-gold: #B8860B;
+            --light-gray: #F8FAFC;
+            --dark-gray: #334155;
+            --border-color: #E2E8F0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            padding-top: 80px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.25rem; }
+        h3 { font-size: 1.875rem; }
+        h4 { font-size: 1.5rem; }
+        h5 { font-size: 1.25rem; }
+        h6 { font-size: 1.125rem; }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--navy-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--muted-gold);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--navy-blue);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo-text {
+            color: var(--white);
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background-color: rgba(255,255,255,0.1);
+            color: var(--white);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .search-btn, .language-selector, .accessibility-btn {
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-btn:hover, .language-selector:hover, .accessibility-btn:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, #2A3B5C 100%);
+            color: var(--white);
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* News Content */
+        .news-content {
+            padding: 4rem 0;
+        }
+
+        .news-overview {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .news-overview h2 {
+            color: var(--navy-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .news-overview p {
+            font-size: 1.125rem;
+            color: var(--slate-gray);
+            line-height: 1.8;
+        }
+
+        /* Newsroom Layout */
+        .newsroom-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Article List */
+        .articles-section {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .articles-header {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .articles-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .article-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .article-item:hover {
+            background-color: var(--light-gray);
+        }
+
+        .article-item:last-child {
+            border-bottom: none;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: var(--slate-gray);
+        }
+
+        .article-badge {
+            background-color: var(--muted-gold);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .article-authority {
+            color: var(--navy-blue);
+            font-weight: 600;
+        }
+
+        .article-date {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-title {
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .article-excerpt {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .article-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .article-tags {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: var(--light-gray);
+            color: var(--slate-gray);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .read-more {
+            color: var(--muted-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-section {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-header h3 {
+            color: var(--navy-blue);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+
+        .sidebar-content {
+            padding: 1.5rem;
+        }
+
+        /* Filters */
+        .filter-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .filter-label {
+            display: block;
+            font-weight: 600;
+            color: var(--navy-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-option input[type="checkbox"] {
+            margin: 0;
+        }
+
+        .filter-option label {
+            font-size: 0.875rem;
+            color: var(--dark-gray);
+            cursor: pointer;
+        }
+
+        .filter-count {
+            color: var(--slate-gray);
+            font-size: 0.75rem;
+            margin-left: auto;
+        }
+
+        /* Search Box */
+        .search-box {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--navy-blue);
+        }
+
+        /* Recent Articles */
+        .recent-article {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        .recent-article:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .recent-article:first-child {
+            padding-top: 0;
+        }
+
+        .recent-title {
+            color: var(--navy-blue);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .recent-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.75rem;
+            color: var(--slate-gray);
+        }
+
+        /* Categories */
+        .category-list {
+            list-style: none;
+        }
+
+        .category-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .category-item:last-child {
+            border-bottom: none;
+        }
+
+        .category-name {
+            color: var(--dark-gray);
+            font-weight: 500;
+        }
+
+        .category-count {
+            background-color: var(--light-gray);
+            color: var(--slate-gray);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+        }
+
+        .page-btn {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            color: var(--dark-gray);
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .page-btn:hover {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            border-color: var(--navy-blue);
+        }
+
+        .page-btn.active {
+            background-color: var(--muted-gold);
+            color: var(--white);
+            border-color: var(--muted-gold);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--muted-gold);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--muted-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.875rem;
+        }
+
+        .footer-seal {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--navy-blue);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .newsroom-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .article-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .article-tags {
+                flex-wrap: wrap;
+            }
+
+            .pagination {
+                flex-wrap: wrap;
+            }
+
+            .header-container,
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Accessibility Features */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--navy-blue);
+            color: var(--white);
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1001;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* High Contrast Mode */
+        body.high-contrast {
+            --navy-blue: #000000;
+            --white: #FFFFFF;
+            --slate-gray: #666666;
+            --muted-gold: #FFCC00;
+            --light-gray: #F0F0F0;
+            --dark-gray: #000000;
+            --border-color: #000000;
+        }
+
+        /* Font Size Controls */
+        body.font-small { font-size: 14px; }
+        body.font-medium { font-size: 16px; }
+        body.font-large { font-size: 18px; }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="resources/naval-seal.png" alt="Imperial Naval Seal">
+                <span class="logo-text">XNN / RXN</span>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="leadership.html">Leadership</a></li>
+                    <li><a href="fleets.html">Fleets</a></li>
+                    <li><a href="operations.html">Operations</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="news.html" class="active">News</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="search-btn" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="language-selector" aria-label="Language">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </button>
+                <button class="accessibility-btn contrast-toggle" aria-label="High Contrast">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Menu">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>News & Dispatches</h1>
+                <p>Official Communications from the Imperial Navy</p>
+            </div>
+        </section>
+
+        <section class="news-content">
+            <div class="container">
+                <div class="news-overview reveal">
+                    <h2>Naval Communications</h2>
+                    <p>
+                        Stay informed with the latest official announcements, operational updates, and 
+                        press releases from the Imperial Navy. All communications are issued through 
+                        official channels and represent the authoritative voice of naval leadership.
+                    </p>
+                </div>
+
+                <!-- Newsroom Layout -->
+                <div class="newsroom-layout">
+                    <!-- Main Articles Section -->
+                    <div class="articles-section reveal">
+                        <div class="articles-header">
+                            <h2>Latest Releases</h2>
+                        </div>
+
+                        <!-- Article 1 -->
+                        <article class="article-item" id="article-1">
+                            <div class="article-meta">
+                                <span class="article-badge">Press Release</span>
+                                <span class="article-authority">Office of the High Admiralty</span>
+                                <div class="article-date">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    <span>Imperial Date 2478.3.15 | Standard Date January 11, 2026</span>
+                                </div>
+                            </div>
+                            <h3 class="article-title">Royal Fleet Concludes Northern Maritime Exercise</h3>
+                            <p class="article-excerpt">
+                                The Royal Xana Navy confirms the conclusion of a multi-fleet maritime exercise conducted 
+                                in the Northern Sea Zone. The exercise focused on command coordination, fleet endurance, 
+                                and joint operational readiness with National Navy elements. All participating vessels 
+                                returned without incident, demonstrating the high level of professionalism and 
+                                capability of imperial naval forces.
+                            </p>
+                            <div class="article-footer">
+                                <div class="article-tags">
+                                    <span class="tag">Training</span>
+                                    <span class="tag">Royal Navy</span>
+                                    <span class="tag">Fleet Exercise</span>
+                                </div>
+                                <a href="#" class="read-more">Read Full Article →</a>
+                            </div>
+                        </article>
+
+                        <!-- Article 2 -->
+                        <article class="article-item">
+                            <div class="article-meta">
+                                <span class="article-badge">Operational Update</span>
+                                <span class="article-authority">3rd Fleet Command</span>
+                                <div class="article-date">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    <span>Imperial Date 2478.3.12 | Standard Date January 8, 2026</span>
+                                </div>
+                            </div>
+                            <h3 class="article-title">Enhanced Maritime Security Patrols Begin</h3>
+                            <p class="article-excerpt">
+                                The Xana National Navy has commenced enhanced maritime security patrols in the Eastern 
+                                Trade Corridor. These operations will focus on protecting imperial merchant vessels 
+                                and ensuring freedom of navigation through critical shipping lanes. Additional 
+                                destroyer groups have been deployed to support ongoing security efforts.
+                            </p>
+                            <div class="article-footer">
+                                <div class="article-tags">
+                                    <span class="tag">Operations</span>
+                                    <span class="tag">Security</span>
+                                    <span class="tag">Trade Protection</span>
+                                </div>
+                                <a href="#" class="read-more">Read Full Article →</a>
+                            </div>
+                        </article>
+
+                        <!-- Article 3 -->
+                        <article class="article-item">
+                            <div class="article-meta">
+                                <span class="article-badge">Personnel</span>
+                                <span class="article-authority">Naval Personnel Command</span>
+                                <div class="article-date">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    <span>Imperial Date 2478.3.10 | Standard Date January 6, 2026</span>
+                                </div>
+                            </div>
+                            <h3 class="article-title">Naval Academy Announces New Officer Training Program</h3>
+                            <p class="article-excerpt">
+                                The Imperial Naval Academy has unveiled an enhanced officer training curriculum 
+                                designed to prepare future naval leaders for modern maritime challenges. The program 
+                                includes advanced coursework in cyber warfare, electronic systems, and joint operations 
+                                planning. Applications for the next academic year are now being accepted.
+                            </p>
+                            <div class="article-footer">
+                                <div class="article-tags">
+                                    <span class="tag">Training</span>
+                                    <span class="tag">Academy</span>
+                                    <span class="tag">Officer Program</span>
+                                </div>
+                                <a href="#" class="read-more">Read Full Article →</a>
+                            </div>
+                        </article>
+
+                        <!-- Article 4 -->
+                        <article class="article-item">
+                            <div class="article-meta">
+                                <span class="article-badge">Diplomatic</span>
+                                <span class="article-authority">Royal Xana Navy</span>
+                                <div class="article-date">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    <span>Imperial Date 2478.3.8 | Standard Date January 4, 2026</span>
+                                </div>
+                            </div>
+                            <h3 class="article-title">Royal Navy Completes State Visit to Allied Nation</h3>
+                            <p class="article-excerpt">
+                                The Royal Xana Navy vessel RXN Crown Defender has successfully completed a diplomatic 
+                                mission to the Kingdom of Valdris, strengthening maritime partnerships and demonstrating 
+                                imperial naval capabilities. The visit included joint exercises and ceremonial exchanges 
+                                between naval forces.
+                            </p>
+                            <div class="article-footer">
+                                <div class="article-tags">
+                                    <span class="tag">Diplomacy</span>
+                                    <span class="tag">Royal Navy</span>
+                                    <span class="tag">Allied Relations</span>
+                                </div>
+                                <a href="#" class="read-more">Read Full Article →</a>
+                            </div>
+                        </article>
+
+                        <!-- Article 5 -->
+                        <article class="article-item">
+                            <div class="article-meta">
+                                <span class="article-badge">Technology</span>
+                                <span class="article-authority">Naval Research Division</span>
+                                <div class="article-date">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    <span>Imperial Date 2478.3.5 | Standard Date January 1, 2026</span>
+                                </div>
+                            </div>
+                            <h3 class="article-title">New Radar System Enters Service</h3>
+                            <p class="article-excerpt">
+                                The Imperial Navy has begun deployment of the advanced XAR-47 radar system across 
+                                the fleet. This next-generation technology provides enhanced detection capabilities, 
+                                improved electronic countermeasures, and integrated network connectivity. Initial 
+                                installations are being completed on destroyer and frigate vessels.
+                            </p>
+                            <div class="article-footer">
+                                <div class="article-tags">
+                                    <span class="tag">Technology</span>
+                                    <span class="tag">Equipment</span>
+                                    <span class="tag">Modernization</span>
+                                </div>
+                                <a href="#" class="read-more">Read Full Article →</a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination reveal">
+                        <button class="page-btn" disabled>Previous</button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">4</button>
+                        <button class="page-btn">5</button>
+                        <button class="page-btn">Next</button>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Search and Filters -->
+                    <div class="sidebar-section reveal">
+                        <div class="sidebar-header">
+                            <h3>Search & Filter</h3>
+                        </div>
+                        <div class="sidebar-content">
+                            <input type="text" class="search-box" placeholder="Search articles...">
+                            
+                            <div class="filter-group">
+                                <label class="filter-label">Issuing Authority</label>
+                                <div class="filter-options">
+                                    <div class="filter-option">
+                                        <input type="checkbox" id="auth-high-admiralty" checked>
+                                        <label for="auth-high-admiralty">High Admiralty</label>
+                                        <span class="filter-count">12</span>
+                                    </div>
+                                    <div class="filter-option">
+                                        <input type="checkbox" id="auth-fleet-commands" checked>
+                                        <label for="auth-fleet-commands">Fleet Commands</label>
+                                        <span class="filter-count">8</span>
+                                    </div>
+                                    <div class="filter-option">
+                                        <input type="checkbox" id="auth-personnel" checked>
+                                        <label for="auth-personnel">Personnel Command</label>
+                                        <span class="filter-count">5</span>
+                                    </div>
+                                    <div class="filter-option">
+                                        <input type="checkbox" id="auth-research" checked>
+                                        <label for="auth-research">Research Division</label>
+                                        <span class="filter-count">3</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <label class="filter-label">Content Type</label>
+                                <div class="filter-options">
+                                    <div class="filter-option">
+                                        <input type="checkbox" id="type-press-release" checked>
+                                        <label for="type-press-release">Press Releases</label>
+                                        <span class="filter-count">15</span>
+                                    </div>
+                                    <div class="filter-option">
+                                        <input type="checkbox" id="type-operational" checked>
+                                        <label for="type-operational">Operational Updates</label>
+                                        <span class="filter-count">7</span>
+                                    </div>
+                                    <div class="filter-option">
+                                        <input type="checkbox" id="type-personnel" checked>
+                                        <label for="type-personnel">Personnel News</label>
+                                        <span class="filter-count">4</span>
+                                    </div>
+                                    <div class="filter-option">
+                                        <input type="checkbox" id="type-technology" checked>
+                                        <label for="type-technology">Technology</label>
+                                        <span class="filter-count">2</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-group">
+                                <label class="filter-label">Fleet</label>
+                                <div class="filter-options">
+                                    <div class="filter-option">
+                                        <input type="checkbox" id="fleet-xnn" checked>
+                                        <label for="fleet-xnn">Xana National Navy</label>
+                                        <span class="filter-count">18</span>
+                                    </div>
+                                    <div class="filter-option">
+                                        <input type="checkbox" id="fleet-rxn" checked>
+                                        <label for="fleet-rxn">Royal Xana Navy</label>
+                                        <span class="filter-count">10</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Articles -->
+                    <div class="sidebar-section reveal">
+                        <div class="sidebar-header">
+                            <h3>Recent Articles</h3>
+                        </div>
+                        <div class="sidebar-content">
+                            <div class="recent-article">
+                                <h4 class="recent-title">Naval Academy Announces New Officer Training Program</h4>
+                                <div class="recent-meta">
+                                    <span>Imperial Date 2478.3.10</span>
+                                    <span>Personnel Command</span>
+                                </div>
+                            </div>
+                            <div class="recent-article">
+                                <h4 class="recent-title">Enhanced Maritime Security Patrols Begin</h4>
+                                <div class="recent-meta">
+                                    <span>Imperial Date 2478.3.12</span>
+                                    <span>3rd Fleet Command</span>
+                                </div>
+                            </div>
+                            <div class="recent-article">
+                                <h4 class="recent-title">New Radar System Enters Service</h4>
+                                <div class="recent-meta">
+                                    <span>Imperial Date 2478.3.5</span>
+                                    <span>Research Division</span>
+                                </div>
+                            </div>
+                            <div class="recent-article">
+                                <h4 class="recent-title">Royal Navy Completes State Visit</h4>
+                                <div class="recent-meta">
+                                    <span>Imperial Date 2478.3.8</span>
+                                    <span>Royal Xana Navy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="sidebar-section reveal">
+                        <div class="sidebar-header">
+                            <h3>Categories</h3>
+                        </div>
+                        <div class="sidebar-content">
+                            <ul class="category-list">
+                                <li class="category-item">
+                                    <span class="category-name">Operations</span>
+                                    <span class="category-count">25</span>
+                                </li>
+                                <li class="category-item">
+                                    <span class="category-name">Training</span>
+                                    <span class="category-count">18</span>
+                                </li>
+                                <li class="category-item">
+                                    <span class="category-name">Personnel</span>
+                                    <span class="category-count">15</span>
+                                </li>
+                                <li class="category-item">
+                                    <span class="category-name">Technology</span>
+                                    <span class="category-count">12</span>
+                                </li>
+                                <li class="category-item">
+                                    <span class="category-name">Diplomacy</span>
+                                    <span class="category-count">8</span>
+                                </li>
+                                <li class="category-item">
+                                    <span class="category-name">History</span>
+                                    <span class="category-count">6</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="resources/naval-seal.png" alt="Imperial Naval Seal" class="footer-seal">
+                    <h4>Imperial Xana Navy</h4>
+                    <p>Maritime defense force of the Great Holy Xanarcica Empire, protecting imperial interests across all seas.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About the Navy</a>
+                    <a href="leadership.html">Leadership</a>
+                    <a href="fleets.html">Fleet Information</a>
+                    <a href="operations.html">Operations</a>
+                    <a href="careers.html">Join the Navy</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Public Affairs</h4>
+                    <p>Office of Naval Communications</p>
+                    <p>Imperial Naval Headquarters</p>
+                    <p>Xanarcica City, District 1</p>
+                    <a href="mailto:public.affairs@xana.navy">public.affairs@xana.navy</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal Notice</h4>
+                    <p>All content subject to Xaiar Law and Imperial Naval Regulations. Unauthorized reproduction or distribution of classified materials is prohibited.</p>
+                    <a href="#" onclick="return false;">Privacy Policy</a>
+                    <a href="#" onclick="return false;">Terms of Service</a>
+                    <a href="#" onclick="return false;">Accessibility</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2478 Imperial Xana Navy. All rights reserved. | Imperial Date: 2478.3.15 | Standard Date: January 11, 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

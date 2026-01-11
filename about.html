@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Xana National Navy & Royal Xana Navy</title>
+    <meta name="description" content="Learn about the mission, authority, and structure of the Xana National Navy and Royal Xana Navy.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Import base styles from index.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy-blue: #1B2951;
+            --white: #FFFFFF;
+            --slate-gray: #64748B;
+            --muted-gold: #B8860B;
+            --light-gray: #F8FAFC;
+            --dark-gray: #334155;
+            --border-color: #E2E8F0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            padding-top: 80px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.25rem; }
+        h3 { font-size: 1.875rem; }
+        h4 { font-size: 1.5rem; }
+        h5 { font-size: 1.25rem; }
+        h6 { font-size: 1.125rem; }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--navy-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--muted-gold);
+        }
+
+        /* Header Styles (same as index) */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--navy-blue);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo-text {
+            color: var(--white);
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background-color: rgba(255,255,255,0.1);
+            color: var(--white);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .search-btn, .language-selector, .accessibility-btn {
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-btn:hover, .language-selector:hover, .accessibility-btn:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, #2A3B5C 100%);
+            color: var(--white);
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Content */
+        .about-content {
+            padding: 4rem 0;
+        }
+
+        .about-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-intro h2 {
+            color: var(--navy-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-intro p {
+            font-size: 1.125rem;
+            color: var(--slate-gray);
+            line-height: 1.8;
+        }
+
+        /* Collapsible Panels */
+        .collapsible-panels {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .collapsible-panel {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .collapsible-panel:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .collapsible-panel.open {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .panel-header {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color 0.3s ease;
+        }
+
+        .panel-header:hover {
+            background-color: #E2E8F0;
+        }
+
+        .collapsible-panel.open .panel-header {
+            background-color: var(--navy-blue);
+            color: var(--white);
+        }
+
+        .panel-title {
+            font-size: 1.5rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .panel-icon {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .collapsible-panel.open .panel-icon {
+            transform: rotate(180deg);
+        }
+
+        .panel-content {
+            display: none;
+            padding: 2rem;
+            background-color: var(--white);
+        }
+
+        .collapsible-panel.open .panel-content {
+            display: block;
+        }
+
+        .panel-content h4 {
+            color: var(--navy-blue);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .panel-content h4:first-child {
+            margin-top: 0;
+        }
+
+        .panel-content ul {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .panel-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .highlight-box {
+            background-color: var(--light-gray);
+            border-left: 4px solid var(--muted-gold);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box h5 {
+            color: var(--navy-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .dual-structure {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .navy-type {
+            background-color: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--navy-blue);
+        }
+
+        .navy-type.royal {
+            border-top-color: var(--muted-gold);
+        }
+
+        .navy-type h5 {
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--muted-gold);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--muted-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.875rem;
+        }
+
+        .footer-seal {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--navy-blue);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .panel-title {
+                font-size: 1.25rem;
+            }
+
+            .dual-structure {
+                grid-template-columns: 1fr;
+            }
+
+            .header-container,
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Accessibility Features */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--navy-blue);
+            color: var(--white);
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1001;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* High Contrast Mode */
+        body.high-contrast {
+            --navy-blue: #000000;
+            --white: #FFFFFF;
+            --slate-gray: #666666;
+            --muted-gold: #FFCC00;
+            --light-gray: #F0F0F0;
+            --dark-gray: #000000;
+            --border-color: #000000;
+        }
+
+        /* Font Size Controls */
+        body.font-small { font-size: 14px; }
+        body.font-medium { font-size: 16px; }
+        body.font-large { font-size: 18px; }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="resources/naval-seal.png" alt="Imperial Naval Seal">
+                <span class="logo-text">XNN / RXN</span>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="leadership.html">Leadership</a></li>
+                    <li><a href="fleets.html">Fleets</a></li>
+                    <li><a href="operations.html">Operations</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="search-btn" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="language-selector" aria-label="Language">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </button>
+                <button class="accessibility-btn contrast-toggle" aria-label="High Contrast">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Menu">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>About the Imperial Navy</h1>
+                <p>Maritime defense force of the Great Holy Xanarcica Empire</p>
+            </div>
+        </section>
+
+        <section class="about-content">
+            <div class="container">
+                <div class="about-intro reveal">
+                    <h2>Defending the Empire's Maritime Interests</h2>
+                    <p>
+                        The Xana National Navy and Royal Xana Navy represent the dual maritime defense structure 
+                        of the Great Holy Xanarcica Empire. Our unified command structure ensures comprehensive 
+                        protection of imperial waters while maintaining the distinct operational requirements of 
+                        national defense and royal maritime interests.
+                    </p>
+                </div>
+
+                <div class="collapsible-panels">
+                    <!-- Mission Panel -->
+                    <div class="collapsible-panel open">
+                        <div class="panel-header">
+                            <h3 class="panel-title">
+                                <svg class="panel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                    <path d="M2 17l10 5 10-5"></path>
+                                    <path d="M2 12l10 5 10-5"></path>
+                                </svg>
+                                Mission
+                            </h3>
+                        </div>
+                        <div class="panel-content">
+                            <h4>Primary Mission Statement</h4>
+                            <p>
+                                The Imperial Navy's primary mission is to maintain maritime superiority across all 
+                                imperial waters, protect the empire's maritime trade routes, and defend against 
+                                naval threats to the Great Holy Xanarcica Empire. We operate under the authority 
+                                of the Imperial Crown and in accordance with Xaiar Law.
+                            </p>
+
+                            <h4>Core Objectives</h4>
+                            <ul>
+                                <li>Maritime domain awareness and control</li>
+                                <li>Protection of imperial shipping and trade</li>
+                                <li>Defense against maritime invasion and piracy</li>
+                                <li>Humanitarian assistance and disaster relief</li>
+                                <li>International naval cooperation and diplomacy</li>
+                                <li>Scientific research and maritime exploration</li>
+                            </ul>
+
+                            <div class="highlight-box">
+                                <h5>Operational Philosophy</h5>
+                                <p>
+                                    The Imperial Navy operates on the principles of technological superiority, 
+                                    operational excellence, and unwavering loyalty to the Crown. Our forces maintain 
+                                    constant readiness to respond to any maritime threat or contingency.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Legal Authority Panel -->
+                    <div class="collapsible-panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">
+                                <svg class="panel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                                Legal Authority
+                            </h3>
+                        </div>
+                        <div class="panel-content">
+                            <h4>Constitutional Foundation</h4>
+                            <p>
+                                The Imperial Navy derives its authority from the Imperial Charter of 2345 and subsequent 
+                                amendments to the Xanarcica Constitution. Article VII, Section 12 establishes the 
+                                naval forces as the primary maritime defense organization of the empire.
+                            </p>
+
+                            <h4>Xaiar Law Compliance</h4>
+                            <p>
+                                All naval operations are conducted in strict accordance with Xaiar Law, which governs 
+                                military conduct, rules of engagement, and international maritime law compliance. 
+                                The Imperial Navy maintains legal attachés and judge advocate general personnel 
+                                to ensure continuous compliance with all applicable laws and treaties.
+                            </p>
+
+                            <h4>International Treaties</h4>
+                            <ul>
+                                <li>Treaty of Maritime Cooperation (2378)</li>
+                                <li>International Piracy Suppression Agreement (2392)</li>
+                                <li>Maritime Search and Rescue Convention (2401)</li>
+                                <li>Neutrality and Non-Aggression Pact (2456)</li>
+                            </ul>
+
+                            <div class="highlight-box">
+                                <h5>Oversight Structure</h5>
+                                <p>
+                                    The Imperial Navy operates under the dual oversight of the Imperial Naval Command 
+                                    and the Ministry of Defense. Regular reporting to the Imperial Parliament ensures 
+                                    civilian control and democratic accountability of all naval operations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Role within Empire Panel -->
+                    <div class="collapsible-panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">
+                                <svg class="panel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                </svg>
+                                Role within the Empire
+                            </h3>
+                        </div>
+                        <div class="panel-content">
+                            <h4>Strategic Importance</h4>
+                            <p>
+                                As an island nation, the Great Holy Xanarcica Empire's prosperity and security are 
+                                intrinsically linked to maritime control. The Imperial Navy serves as the primary 
+                                instrument of sea power, enabling the empire to project force, protect commerce, 
+                                and maintain strategic independence.
+                            </p>
+
+                            <h4>Economic Protection</h4>
+                            <p>
+                                Over 85% of imperial trade travels by sea. The Imperial Navy's continuous patrol 
+                                of trade routes ensures the uninterrupted flow of goods, resources, and wealth 
+                                that sustains the empire's economy. Our anti-piracy operations have reduced 
+                                maritime crime by 92% since 2460.
+                            </p>
+
+                            <h4>Interagency Cooperation</h4>
+                            <p>
+                                The Imperial Navy works closely with other imperial agencies including the Coast 
+                                Guard, Customs Enforcement, Marine Research Institute, and the Imperial Diplomatic 
+                                Corps. This integrated approach ensures comprehensive maritime governance.
+                            </p>
+
+                            <ul>
+                                <li>Joint operations with the Imperial Army for amphibious capabilities</li>
+                                <li>Coordinated air-sea operations with the Imperial Air Force</li>
+                                <li>Intelligence sharing with the Imperial Security Service</li>
+                                <li>Scientific collaboration with the Imperial Academy of Sciences</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- XNN and RXN Relationship Panel -->
+                    <div class="collapsible-panel">
+                        <div class="panel-header">
+                            <h3 class="panel-title">
+                                <svg class="panel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                                XNN and RXN Relationship
+                            </h3>
+                        </div>
+                        <div class="panel-content">
+                            <p>
+                                The dual navy structure of the Great Holy Xanarcica Empire reflects the unique 
+                                constitutional arrangement between the imperial government and the crown. While 
+                                both organizations serve the empire, they maintain distinct chains of command 
+                                and operational priorities.
+                            </p>
+
+                            <div class="dual-structure">
+                                <div class="navy-type">
+                                    <h5>Xana National Navy (XNN)</h5>
+                                    <p>
+                                        The XNN operates under the Ministry of Defense and is responsible for 
+                                        national defense, territorial waters protection, and conventional naval 
+                                        operations. The XNN comprises the majority of imperial naval forces and 
+                                        handles routine maritime security.
+                                    </p>
+                                    <ul>
+                                        <li>National defense operations</li>
+                                        <li>Coastal patrol and surveillance</li>
+                                        <li>Conventional fleet engagements</li>
+                                        <li>Naval research and development</li>
+                                    </ul>
+                                </div>
+
+                                <div class="navy-type royal">
+                                    <h5>Royal Xana Navy (RXN)</h5>
+                                    <p>
+                                        The RXN operates directly under crown authority and handles special 
+                                        maritime operations, royal security, and diplomatic missions. RXN vessels 
+                                        are distinguished by gold insignia and have unique operational privileges.
+                                    </p>
+                                    <ul>
+                                        <li>Royal security and ceremonial duties</li>
+                                        <li>Special maritime operations</li>
+                                        <li>Diplomatic and state visits</li>
+                                        <li>Elite naval formations</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h4>Unified Command Structure</h4>
+                            <p>
+                                Despite their separate chains of command, both navies operate under a unified 
+                                strategic doctrine coordinated by the High Admiralty. This ensures seamless 
+                                cooperation during joint operations and prevents duplication of capabilities.
+                            </p>
+
+                            <div class="highlight-box">
+                                <h5>Joint Operations Protocol</h5>
+                                <p>
+                                    During major operations, XNN and RXN forces operate under a unified command 
+                                    structure led by the senior admiral present. This protocol has proven highly 
+                                    effective in maintaining operational coherence while respecting both organizations' 
+                                    distinct authorities.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="resources/naval-seal.png" alt="Imperial Naval Seal" class="footer-seal">
+                    <h4>Imperial Xana Navy</h4>
+                    <p>Maritime defense force of the Great Holy Xanarcica Empire, protecting imperial interests across all seas.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About the Navy</a>
+                    <a href="leadership.html">Leadership</a>
+                    <a href="fleets.html">Fleet Information</a>
+                    <a href="operations.html">Operations</a>
+                    <a href="careers.html">Join the Navy</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Public Affairs</h4>
+                    <p>Office of Naval Communications</p>
+                    <p>Imperial Naval Headquarters</p>
+                    <p>Xanarcica City, District 1</p>
+                    <a href="mailto:public.affairs@xana.navy">public.affairs@xana.navy</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal Notice</h4>
+                    <p>All content subject to Xaiar Law and Imperial Naval Regulations. Unauthorized reproduction or distribution of classified materials is prohibited.</p>
+                    <a href="#" onclick="return false;">Privacy Policy</a>
+                    <a href="#" onclick="return false;">Terms of Service</a>
+                    <a href="#" onclick="return false;">Accessibility</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2478 Imperial Xana Navy. All rights reserved. | Imperial Date: 2478.3.15 | Standard Date: January 11, 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

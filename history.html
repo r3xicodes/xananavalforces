@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History - Xana National Navy & Royal Xana Navy</title>
+    <meta name="description" content="Explore the rich history and traditions of the Xana National Navy and Royal Xana Navy.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy-blue: #1B2951;
+            --white: #FFFFFF;
+            --slate-gray: #64748B;
+            --muted-gold: #B8860B;
+            --light-gray: #F8FAFC;
+            --dark-gray: #334155;
+            --border-color: #E2E8F0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            padding-top: 80px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.25rem; }
+        h3 { font-size: 1.875rem; }
+        h4 { font-size: 1.5rem; }
+        h5 { font-size: 1.25rem; }
+        h6 { font-size: 1.125rem; }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--navy-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--muted-gold);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--navy-blue);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo-text {
+            color: var(--white);
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background-color: rgba(255,255,255,0.1);
+            color: var(--white);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .search-btn, .language-selector, .accessibility-btn {
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-btn:hover, .language-selector:hover, .accessibility-btn:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, #2A3B5C 100%);
+            color: var(--white);
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* History Content */
+        .history-content {
+            padding: 4rem 0;
+        }
+
+        .history-overview {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .history-overview h2 {
+            color: var(--navy-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .history-overview p {
+            font-size: 1.125rem;
+            color: var(--slate-gray);
+            line-height: 1.8;
+        }
+
+        /* Timeline Navigation */
+        .timeline-nav {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .timeline-nav h3 {
+            color: var(--navy-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .nav-link {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            color: var(--dark-gray);
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            border-color: var(--navy-blue);
+        }
+
+        /* Interactive Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--navy-blue);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .timeline-item.active {
+            transform: scale(1.02);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 50%;
+            padding-right: 3rem;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 50%;
+            padding-left: 3rem;
+            text-align: left;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            width: 20px;
+            height: 20px;
+            background-color: var(--muted-gold);
+            border: 4px solid var(--white);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px var(--navy-blue);
+            z-index: 2;
+        }
+
+        .timeline-content {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 2rem;
+            width: 0;
+            height: 0;
+            border-left: 10px solid var(--white);
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 2rem;
+            width: 0;
+            height: 0;
+            border-right: 10px solid var(--white);
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
+
+        .timeline-period {
+            color: var(--muted-gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .timeline-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-item {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+        }
+
+        .highlight-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .highlight-label {
+            font-size: 0.75rem;
+            color: var(--slate-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .timeline-link {
+            color: var(--muted-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Era Sections */
+        .era-section {
+            margin-bottom: 6rem;
+        }
+
+        .era-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .era-header h2 {
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+
+        .era-header p {
+            color: var(--slate-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Historical Milestones */
+        .milestones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .milestone-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+
+        .milestone-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .milestone-year {
+            color: var(--muted-gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .milestone-title {
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+
+        .milestone-description {
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .milestone-impact {
+            color: var(--slate-gray);
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        /* Traditions Section */
+        .traditions-section {
+            background-color: var(--light-gray);
+            padding: 4rem 0;
+            margin: 0 -2rem;
+        }
+
+        .traditions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .tradition-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .tradition-icon {
+            width: 64px;
+            height: 64px;
+            background-color: var(--navy-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: var(--white);
+        }
+
+        .tradition-title {
+            color: var(--navy-blue);
+            margin-bottom: 1rem;
+        }
+
+        .tradition-description {
+            color: var(--slate-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--muted-gold);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--muted-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.875rem;
+        }
+
+        .footer-seal {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--navy-blue);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .timeline::before {
+                left: 2rem;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 4rem;
+                margin-right: 0;
+                padding-left: 2rem;
+                padding-right: 2rem;
+                text-align: left;
+            }
+
+            .timeline-marker {
+                left: 2rem;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -10px;
+                border-right: 10px solid var(--white);
+                border-left: none;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .milestones-grid,
+            .traditions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-container,
+            .container {
+                padding: 0 1rem;
+            }
+
+            .traditions-section {
+                margin: 0 -1rem;
+            }
+        }
+
+        /* Accessibility Features */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--navy-blue);
+            color: var(--white);
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1001;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* High Contrast Mode */
+        body.high-contrast {
+            --navy-blue: #000000;
+            --white: #FFFFFF;
+            --slate-gray: #666666;
+            --muted-gold: #FFCC00;
+            --light-gray: #F0F0F0;
+            --dark-gray: #000000;
+            --border-color: #000000;
+        }
+
+        /* Font Size Controls */
+        body.font-small { font-size: 14px; }
+        body.font-medium { font-size: 16px; }
+        body.font-large { font-size: 18px; }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="resources/naval-seal.png" alt="Imperial Naval Seal">
+                <span class="logo-text">XNN / RXN</span>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="leadership.html">Leadership</a></li>
+                    <li><a href="fleets.html">Fleets</a></li>
+                    <li><a href="operations.html">Operations</a></li>
+                    <li><a href="history.html" class="active">History</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="search-btn" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="language-selector" aria-label="Language">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </button>
+                <button class="accessibility-btn contrast-toggle" aria-label="High Contrast">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Menu">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>Naval History</h1>
+                <p>Traditions and Legacy of the Imperial Navy</p>
+            </div>
+        </section>
+
+        <section class="history-content">
+            <div class="container">
+                <div class="history-overview reveal">
+                    <h2>Centuries of Maritime Excellence</h2>
+                    <p>
+                        The Imperial Navy traces its origins to the early maritime traditions of the Xanarcica 
+                        Empire, evolving from coastal defense forces to a dominant naval power. Our history 
+                        reflects the empire's growth, technological advancement, and unwavering commitment to 
+                        maritime security and naval supremacy.
+                    </p>
+                </div>
+
+                <!-- Timeline Navigation -->
+                <div class="timeline-nav reveal">
+                    <h3>Historical Periods</h3>
+                    <div class="nav-links">
+                        <a href="#founding-era" class="nav-link">Founding Era (2000-2200)</a>
+                        <a href="#expansion-era" class="nav-link">Expansion Era (2200-2350)</a>
+                        <a href="#industrial-era" class="nav-link">Industrial Era (2350-2450)</a>
+                        <a href="#modern-era" class="nav-link">Modern Era (2450-Present)</a>
+                    </div>
+                </div>
+
+                <!-- Interactive Timeline -->
+                <div class="timeline reveal">
+                    <!-- Founding Era -->
+                    <div class="timeline-item active" id="founding-era">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-period">Imperial Dates 2000-2200</div>
+                            <h3 class="timeline-title">Founding Era: Birth of the Imperial Navy</h3>
+                            <p class="timeline-description">
+                                The early imperial navy emerged from the unification of coastal city-states under 
+                                the First Emperor. Initial vessels were converted merchant ships equipped for 
+                                defense against pirates and rival maritime powers. This period established the 
+                                naval traditions that continue to this day.
+                            </p>
+                            <div class="timeline-highlights">
+                                <div class="highlight-item">
+                                    <div class="highlight-number">15</div>
+                                    <div class="highlight-label">Initial Vessels</div>
+                                </div>
+                                <div class="highlight-item">
+                                    <div class="highlight-number">3</div>
+                                    <div class="highlight-label">Naval Bases</div>
+                                </div>
+                                <div class="highlight-item">
+                                    <div class="highlight-number">200</div>
+                                    <div class="highlight-label">Years</div>
+                                </div>
+                            </div>
+                            <a href="#" class="timeline-link">Learn More →</a>
+                        </div>
+                    </div>
+
+                    <!-- Expansion Era -->
+                    <div class="timeline-item" id="expansion-era">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-period">Imperial Dates 2200-2350</div>
+                            <h3 class="timeline-title">Expansion Era: Growth of Maritime Power</h3>
+                            <p class="timeline-description">
+                                The navy expanded dramatically during the empire's territorial growth. Steam power 
+                                revolutionized naval warfare, and the first ironclad vessels were commissioned. 
+                                The Royal Xana Navy was established as a separate entity to serve crown interests 
+                                directly.
+                            </p>
+                            <div class="timeline-highlights">
+                                <div class="highlight-item">
+                                    <div class="highlight-number">127</div>
+                                    <div class="highlight-label">Fleet Vessels</div>
+                                </div>
+                                <div class="highlight-item">
+                                    <div class="highlight-number">8</div>
+                                    <div class="highlight-label">Naval Bases</div>
+                                </div>
+                                <div class="highlight-item">
+                                    <div class="highlight-number">150</div>
+                                    <div class="highlight-label">Years</div>
+                                </div>
+                            </div>
+                            <a href="#" class="timeline-link">Learn More →</a>
+                        </div>
+                    </div>
+
+                    <!-- Industrial Era -->
+                    <div class="timeline-item" id="industrial-era">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-period">Imperial Dates 2350-2450</div>
+                            <h3 class="timeline-title">Industrial Era: Technological Revolution</h3>
+                            <p class="timeline-description">
+                                The industrial revolution transformed naval capabilities with steel hulls, advanced 
+                                artillery, and eventually, aircraft carriers. The navy played crucial roles in 
+                                major conflicts and established itself as a dominant regional maritime force. 
+                                Naval aviation was introduced during this period.
+                            </p>
+                            <div class="timeline-highlights">
+                                <div class="highlight-item">
+                                    <div class="highlight-number">342</div>
+                                    <div class="highlight-label">Modern Vessels</div>
+                                </div>
+                                <div class="highlight-item">
+                                    <div class="highlight-number">15</div>
+                                    <div class="highlight-label">Naval Bases</div>
+                                </div>
+                                <div class="highlight-item">
+                                    <div class="highlight-number">100</div>
+                                    <div class="highlight-label">Years</div>
+                                </div>
+                            </div>
+                            <a href="#" class="timeline-link">Learn More →</a>
+                        </div>
+                    </div>
+
+                    <!-- Modern Era -->
+                    <div class="timeline-item" id="modern-era">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-period">Imperial Dates 2450-Present</div>
+                            <h3 class="timeline-title">Modern Era: Digital Age Navy</h3>
+                            <p class="timeline-description">
+                                The contemporary navy incorporates advanced digital systems, nuclear propulsion, 
+                                and precision-guided weapons. Cyber warfare capabilities and space-based 
+                                navigation systems represent the cutting edge of naval technology. The dual 
+                                structure of XNN and RXN continues to serve imperial maritime interests.
+                            </p>
+                            <div class="timeline-highlights">
+                                <div class="highlight-item">
+                                    <div class="highlight-number">127</div>
+                                    <div class="highlight-label">Current Fleet</div>
+                                </div>
+                                <div class="highlight-item">
+                                    <div class="highlight-number">28</div>
+                                    <div class="highlight-label">Naval Facilities</div>
+                                </div>
+                                <div class="highlight-item">
+                                    <div class="highlight-number">28+</div>
+                                    <div class="highlight-label">Years</div>
+                                </div>
+                            </div>
+                            <a href="#" class="timeline-link">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Historical Milestones -->
+                <div class="era-section reveal">
+                    <div class="era-header">
+                        <h2>Key Milestones</h2>
+                        <p>Significant events that shaped the Imperial Navy</p>
+                    </div>
+                    
+                    <div class="milestones-grid">
+                        <div class="milestone-card">
+                            <div class="milestone-year">2156</div>
+                            <h4 class="milestone-title">Battle of Crimson Strait</h4>
+                            <p class="milestone-description">
+                                The first major naval victory that established imperial maritime dominance and 
+                                secured crucial trade routes for the empire.
+                            </p>
+                            <p class="milestone-impact">
+                                Established naval supremacy in regional waters
+                            </p>
+                        </div>
+
+                        <div class="milestone-card">
+                            <div class="milestone-year">2345</div>
+                            <h4 class="milestone-title">Imperial Charter Signed</h4>
+                            <p class="milestone-description">
+                                The constitutional document that formally established the dual navy structure, 
+                                creating both the Xana National Navy and Royal Xana Navy.
+                            </p>
+                            <p class="milestone-impact">
+                                Created modern naval organizational structure
+                            </p>
+                        </div>
+
+                        <div class="milestone-card">
+                            <div class="milestone-year">2389</div>
+                            <h4 class="milestone-title">First Ironclad Commissioned</h4>
+                            <p class="milestone-description">
+                                The IXN Iron Defender became the first armored warship in the imperial fleet, 
+                                marking the transition to modern naval warfare.
+                            </p>
+                            <p class="milestone-impact">
+                                Revolutionized naval combat capabilities
+                            </p>
+                        </div>
+
+                        <div class="milestone-card">
+                            <div class="milestone-year">2423</div>
+                            <h4 class="milestone-title">Naval Aviation Established</h4>
+                            <p class="milestone-description">
+                                The first aircraft carrier, IXN Sky Guardian, was commissioned, establishing 
+                                naval aviation as a key component of imperial sea power.
+                            </p>
+                            <p class="milestone-impact">
+                                Created three-dimensional naval warfare
+                            </p>
+                        </div>
+
+                        <div class="milestone-card">
+                            <div class="milestone-year">2460</div>
+                            <h4 class="milestone-title">Nuclear Fleet Launched</h4>
+                            <p class="milestone-description">
+                                The first nuclear-powered submarine, IXN Deep Hunter, entered service, 
+                                providing the navy with unprecedented undersea capabilities.
+                            </p>
+                            <p class="milestone-impact">
+                                Established undersea warfare dominance
+                            </p>
+                        </div>
+
+                        <div class="milestone-card">
+                            <div class="milestone-year">2472</div>
+                            <h4 class="milestone-title">Digital Transformation</h4>
+                            <p class="milestone-description">
+                                Implementation of integrated digital command systems across the entire fleet, 
+                                creating the network-centric navy of today.
+                            </p>
+                            <p class="milestone-impact">
+                                Created modern network-centric warfare capability
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Naval Traditions -->
+                <div class="traditions-section reveal">
+                    <div class="container">
+                        <div class="era-header">
+                            <h2>Naval Traditions</h2>
+                            <p>Customs and ceremonies that define imperial naval culture</p>
+                        </div>
+                        
+                        <div class="traditions-grid">
+                            <div class="tradition-card">
+                                <div class="tradition-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                        <polyline points="2 17 12 22 22 17"></polyline>
+                                        <polyline points="2 12 12 17 22 12"></polyline>
+                                    </svg>
+                                </div>
+                                <h4 class="tradition-title">Ceremonial Colors</h4>
+                                <p class="tradition-description">
+                                    Daily raising and lowering of the imperial standard and naval ensign, 
+                                    maintaining traditions dating to the founding era.
+                                </p>
+                            </div>
+
+                            <div class="tradition-card">
+                                <div class="tradition-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="tradition-title">Crossing the Line</h4>
+                                <p class="tradition-description">
+                                    Ancient ceremony when vessels cross the equator, involving elaborate 
+                                    rituals that induct sailors into the realm of King Neptune.
+                                </p>
+                            </div>
+
+                            <div class="tradition-card">
+                                <div class="tradition-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="tradition-title">Commissioning Ceremony</h4>
+                                <p class="tradition-description">
+                                    Formal ceremony when new vessels enter service, including the blessing 
+                                    of the ship and dedication to the protection of the empire.
+                                </p>
+                            </div>
+
+                            <div class="tradition-card">
+                                <div class="tradition-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                    </svg>
+                                </div>
+                                <h4 class="tradition-title">Ship's Bell</h4>
+                                <p class="tradition-description">
+                                    Every imperial vessel carries a bell that marks time, sounds alarms, and 
+                                    serves as a ceremonial object during naval rituals and memorial services.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="resources/naval-seal.png" alt="Imperial Naval Seal" class="footer-seal">
+                    <h4>Imperial Xana Navy</h4>
+                    <p>Maritime defense force of the Great Holy Xanarcica Empire, protecting imperial interests across all seas.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About the Navy</a>
+                    <a href="leadership.html">Leadership</a>
+                    <a href="fleets.html">Fleet Information</a>
+                    <a href="operations.html">Operations</a>
+                    <a href="careers.html">Join the Navy</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Public Affairs</h4>
+                    <p>Office of Naval Communications</p>
+                    <p>Imperial Naval Headquarters</p>
+                    <p>Xanarcica City, District 1</p>
+                    <a href="mailto:public.affairs@xana.navy">public.affairs@xana.navy</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal Notice</h4>
+                    <p>All content subject to Xaiar Law and Imperial Naval Regulations. Unauthorized reproduction or distribution of classified materials is prohibited.</p>
+                    <a href="#" onclick="return false;">Privacy Policy</a>
+                    <a href="#" onclick="return false;">Terms of Service</a>
+                    <a href="#" onclick="return false;">Accessibility</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2478 Imperial Xana Navy. All rights reserved. | Imperial Date: 2478.3.15 | Standard Date: January 11, 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

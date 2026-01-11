@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleets & Vessels - Xana National Navy & Royal Xana Navy</title>
+    <meta name="description" content="Explore the fleet composition and vessel capabilities of the Xana National Navy and Royal Xana Navy.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy-blue: #1B2951;
+            --white: #FFFFFF;
+            --slate-gray: #64748B;
+            --muted-gold: #B8860B;
+            --light-gray: #F8FAFC;
+            --dark-gray: #334155;
+            --border-color: #E2E8F0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            padding-top: 80px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.25rem; }
+        h3 { font-size: 1.875rem; }
+        h4 { font-size: 1.5rem; }
+        h5 { font-size: 1.25rem; }
+        h6 { font-size: 1.125rem; }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--navy-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--muted-gold);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--navy-blue);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo-text {
+            color: var(--white);
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background-color: rgba(255,255,255,0.1);
+            color: var(--white);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .search-btn, .language-selector, .accessibility-btn {
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-btn:hover, .language-selector:hover, .accessibility-btn:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, #2A3B5C 100%);
+            color: var(--white);
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Fleet Content */
+        .fleet-content {
+            padding: 4rem 0;
+        }
+
+        .fleet-overview {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .fleet-overview h2 {
+            color: var(--navy-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .fleet-overview p {
+            font-size: 1.125rem;
+            color: var(--slate-gray);
+            line-height: 1.8;
+        }
+
+        /* Filter Controls */
+        .filter-controls {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .filter-label {
+            font-weight: 600;
+            color: var(--navy-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.875rem;
+            min-width: 100px;
+        }
+
+        .filter-btn {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            color: var(--dark-gray);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            border-color: var(--navy-blue);
+        }
+
+        .filter-btn.active {
+            background-color: var(--muted-gold);
+            color: var(--white);
+            border-color: var(--muted-gold);
+        }
+
+        .search-container {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .search-input {
+            flex: 1;
+            max-width: 300px;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--navy-blue);
+        }
+
+        /* Fleet Stats */
+        .fleet-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .stat-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--slate-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        /* Vessel Grid */
+        .vessels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .vessel-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .vessel-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .vessel-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: var(--light-gray);
+        }
+
+        .vessel-content {
+            padding: 1.5rem;
+        }
+
+        .vessel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .vessel-name {
+            color: var(--navy-blue);
+            font-size: 1.25rem;
+            margin: 0;
+        }
+
+        .vessel-class {
+            color: var(--muted-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+        }
+
+        .vessel-badges {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .vessel-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-xnn {
+            background-color: var(--navy-blue);
+            color: var(--white);
+        }
+
+        .badge-rxn {
+            background-color: var(--muted-gold);
+            color: var(--white);
+        }
+
+        .badge-active {
+            background-color: #10B981;
+            color: var(--white);
+        }
+
+        .badge-reserve {
+            background-color: var(--slate-gray);
+            color: var(--white);
+        }
+
+        .vessel-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .detail-label {
+            color: var(--slate-gray);
+            font-weight: 500;
+        }
+
+        .detail-value {
+            color: var(--dark-gray);
+            font-weight: 600;
+        }
+
+        .vessel-description {
+            color: var(--slate-gray);
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .vessel-link {
+            color: var(--muted-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Fleet Sections */
+        .fleet-section {
+            margin-bottom: 4rem;
+        }
+
+        .fleet-section h3 {
+            color: var(--navy-blue);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* Royal Fleet Special Section */
+        .royal-fleet {
+            background: linear-gradient(135deg, var(--muted-gold) 0%, #D4A017 100%);
+            color: var(--white);
+            padding: 4rem 0;
+            margin: 0 -2rem 4rem;
+        }
+
+        .royal-fleet .container {
+            text-align: center;
+        }
+
+        .royal-fleet h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .royal-fleet p {
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy-blue);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--muted-gold);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: var(--muted-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.875rem;
+        }
+
+        .footer-seal {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--navy-blue);
+                flex-direction: column;
+                padding: 1rem 0;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .filter-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .search-container {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .search-input {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .vessels-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-container,
+            .container {
+                padding: 0 1rem;
+            }
+
+            .royal-fleet {
+                margin: 0 -1rem 4rem;
+            }
+        }
+
+        /* Accessibility Features */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: var(--navy-blue);
+            color: var(--white);
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1001;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* High Contrast Mode */
+        body.high-contrast {
+            --navy-blue: #000000;
+            --white: #FFFFFF;
+            --slate-gray: #666666;
+            --muted-gold: #FFCC00;
+            --light-gray: #F0F0F0;
+            --dark-gray: #000000;
+            --border-color: #000000;
+        }
+
+        /* Font Size Controls */
+        body.font-small { font-size: 14px; }
+        body.font-medium { font-size: 16px; }
+        body.font-large { font-size: 18px; }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading States */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="resources/naval-seal.png" alt="Imperial Naval Seal">
+                <span class="logo-text">XNN / RXN</span>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="leadership.html">Leadership</a></li>
+                    <li><a href="fleets.html" class="active">Fleets</a></li>
+                    <li><a href="operations.html">Operations</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <button class="search-btn" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="language-selector" aria-label="Language">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </button>
+                <button class="accessibility-btn contrast-toggle" aria-label="High Contrast">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Menu">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>Fleets & Vessels</h1>
+                <p>Maritime Assets of the Imperial Navy</p>
+            </div>
+        </section>
+
+        <section class="fleet-content">
+            <div class="container">
+                <div class="fleet-overview reveal">
+                    <h2>Imperial Fleet Composition</h2>
+                    <p>
+                        The combined fleets of the Xana National Navy and Royal Xana Navy represent one of the 
+                        most powerful maritime forces in the region. Our vessels range from advanced aircraft 
+                        carriers to specialized patrol craft, ensuring comprehensive maritime coverage and 
+                        operational flexibility across all mission requirements.
+                    </p>
+                </div>
+
+                <!-- Fleet Statistics -->
+                <div class="fleet-stats reveal">
+                    <div class="stat-card">
+                        <div class="stat-number">127</div>
+                        <div class="stat-label">Total Vessels</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Aircraft Carriers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">Destroyers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Submarines</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">80</div>
+                        <div class="stat-label">Support Vessels</div>
+                    </div>
+                </div>
+
+                <!-- Filter Controls -->
+                <div class="filter-controls reveal">
+                    <div class="filter-group">
+                        <span class="filter-label">Fleet:</span>
+                        <button class="filter-btn active" data-filter="all" data-type="fleet">All Fleets</button>
+                        <button class="filter-btn" data-filter="xnn" data-type="fleet">Xana National Navy</button>
+                        <button class="filter-btn" data-filter="rxn" data-type="fleet">Royal Xana Navy</button>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <span class="filter-label">Type:</span>
+                        <button class="filter-btn active" data-filter="all" data-type="type">All Types</button>
+                        <button class="filter-btn" data-filter="carrier" data-type="type">Carriers</button>
+                        <button class="filter-btn" data-filter="destroyer" data-type="type">Destroyers</button>
+                        <button class="filter-btn" data-filter="submarine" data-type="type">Submarines</button>
+                        <button class="filter-btn" data-filter="support" data-type="type">Support</button>
+                        <button class="filter-btn" data-filter="patrol" data-type="type">Patrol</button>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <span class="filter-label">Status:</span>
+                        <button class="filter-btn active" data-filter="all" data-type="status">All Status</button>
+                        <button class="filter-btn" data-filter="active" data-type="status">Active</button>
+                        <button class="filter-btn" data-filter="reserve" data-type="status">Reserve</button>
+                        <button class="filter-btn" data-filter="maintenance" data-type="status">Maintenance</button>
+                    </div>
+                    
+                    <div class="search-container">
+                        <span class="filter-label">Search:</span>
+                        <input type="text" class="search-input" placeholder="Search vessels by name or class...">
+                    </div>
+                </div>
+
+                <!-- Royal Fleet Special Section -->
+                <div class="royal-fleet reveal" id="royal">
+                    <div class="container">
+                        <h3>Royal Xana Navy Fleet</h3>
+                        <p>
+                            The Royal Xana Navy operates under direct crown authority, comprising elite vessels 
+                            and specialized formations dedicated to royal security, ceremonial duties, and 
+                            special maritime operations.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Vessel Grid -->
+                <div class="vessels-grid">
+                    <!-- Aircraft Carriers -->
+                    <div class="vessel-card filterable-item" data-category="carrier" data-fleet="xnn" data-status="active">
+                        <img src="https://kimi-web-img.moonshot.cn/img/defence-blog.com/1d745105b2be38a99a0be7bb2afbe4d67b20f481.jpg" alt="IXN Imperator" class="vessel-image">
+                        <div class="vessel-content">
+                            <div class="vessel-header">
+                                <h4 class="vessel-name">IXN Imperator</h4>
+                                <span class="vessel-class">Aircraft Carrier</span>
+                            </div>
+                            <div class="vessel-badges">
+                                <span class="vessel-badge badge-xnn">XNN</span>
+                                <span class="vessel-badge badge-active">Active</span>
+                            </div>
+                            <div class="vessel-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Commissioned:</span>
+                                    <span class="detail-value">2458</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Home Port:</span>
+                                    <span class="detail-value">Xanarcica Bay</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Fleet:</span>
+                                    <span class="detail-value">1st Fleet</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Status:</span>
+                                    <span class="detail-value">Operational</span>
+                                </div>
+                            </div>
+                            <p class="vessel-description">
+                                Flagship of the Imperial Navy, equipped with advanced aircraft launch and recovery systems. 
+                                Primary role: power projection and fleet air defense.
+                            </p>
+                            <a href="#" class="vessel-link">View Details →</a>
+                        </div>
+                    </div>
+
+                    <div class="vessel-card filterable-item" data-category="carrier" data-fleet="rxn" data-status="active">
+                        <img src="https://kimi-web-img.moonshot.cn/img/www.navalnews.com/2f4ed92d3f51223774707804c476243137dd10b9.jpg" alt="RXN Crown Defender" class="vessel-image">
+                        <div class="vessel-content">
+                            <div class="vessel-header">
+                                <h4 class="vessel-name">RXN Crown Defender</h4>
+                                <span class="vessel-class">Royal Carrier</span>
+                            </div>
+                            <div class="vessel-badges">
+                                <span class="vessel-badge badge-rxn">RXN</span>
+                                <span class="vessel-badge badge-active">Active</span>
+                            </div>
+                            <div class="vessel-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Commissioned:</span>
+                                    <span class="detail-value">2465</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Home Port:</span>
+                                    <span class="detail-value">Royal Harbor</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Fleet:</span>
+                                    <span class="detail-value">Royal Fleet</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Status:</span>
+                                    <span class="detail-value">Ceremonial</span>
+                                </div>
+                            </div>
+                            <p class="vessel-description">
+                                Royal flagship reserved for crown ceremonies and diplomatic missions. Features 
+                                enhanced command facilities and royal accommodations.
+                            </p>
+                            <a href="#" class="vessel-link">View Details →</a>
+                        </div>
+                    </div>
+
+                    <!-- Destroyers -->
+                    <div class="vessel-card filterable-item" data-category="destroyer" data-fleet="xnn" data-status="active">
+                        <img src="https://kimi-web-img.moonshot.cn/img/wallup.net/34b58441faf2c8cc7e80ba15a4eea1b34cb7aa22.jpg" alt="IXN Stormbringer" class="vessel-image">
+                        <div class="vessel-content">
+                            <div class="vessel-header">
+                                <h4 class="vessel-name">IXN Stormbringer</h4>
+                                <span class="vessel-class">Guided Missile Destroyer</span>
+                            </div>
+                            <div class="vessel-badges">
+                                <span class="vessel-badge badge-xnn">XNN</span>
+                                <span class="vessel-badge badge-active">Active</span>
+                            </div>
+                            <div class="vessel-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Commissioned:</span>
+                                    <span class="detail-value">2462</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Home Port:</span>
+                                    <span class="detail-value">Northport</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Fleet:</span>
+                                    <span class="detail-value">2nd Fleet</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Status:</span>
+                                    <span class="detail-value">Patrol</span>
+                                </div>
+                            </div>
+                            <p class="vessel-description">
+                                Advanced guided missile destroyer equipped with AEGIS combat system. Provides 
+                                area air defense and anti-surface capabilities for fleet protection.
+                            </p>
+                            <a href="#" class="vessel-link">View Details →</a>
+                        </div>
+                    </div>
+
+                    <div class="vessel-card filterable-item" data-category="destroyer" data-fleet="xnn" data-status="reserve">
+                        <img src="https://kimi-web-img.moonshot.cn/img/wallup.net/0b56f3a8524c04e40c94298462b3b812ebe64825.jpg" alt="IXN Valiant" class="vessel-image">
+                        <div class="vessel-content">
+                            <div class="vessel-header">
+                                <h4 class="vessel-name">IXN Valiant</h4>
+                                <span class="vessel-class">Multi-role Destroyer</span>
+                            </div>
+                            <div class="vessel-badges">
+                                <span class="vessel-badge badge-xnn">XNN</span>
+                                <span class="vessel-badge badge-reserve">Reserve</span>
+                            </div>
+                            <div class="vessel-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Commissioned:</span>
+                                    <span class="detail-value">2455</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Home Port:</span>
+                                    <span class="detail-value">Southport</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Fleet:</span>
+                                    <span class="detail-value">3rd Fleet</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Status:</span>
+                                    <span class="detail-value">Reserve</span>
+                                </div>
+                            </div>
+                            <p class="vessel-description">
+                                Veteran destroyer undergoing modernization. Scheduled to return to active service 
+                                with enhanced anti-submarine and electronic warfare capabilities.
+                            </p>
+                            <a href="#" class="vessel-link">View Details →</a>
+                        </div>
+                    </div>
+
+                    <!-- Submarines -->
+                    <div class="vessel-card filterable-item" data-category="submarine" data-fleet="xnn" data-status="active">
+                        <img src="https://kimi-web-img.moonshot.cn/img/wallup.net/445ca7f83393cf16fba340d90dcc6807e01929b7.jpg" alt="IXN Shadowhunter" class="vessel-image">
+                        <div class="vessel-content">
+                            <div class="vessel-header">
+                                <h4 class="vessel-name">IXN Shadowhunter</h4>
+                                <span class="vessel-class">Attack Submarine</span>
+                            </div>
+                            <div class="vessel-badges">
+                                <span class="vessel-badge badge-xnn">XNN</span>
+                                <span class="vessel-badge badge-active">Active</span>
+                            </div>
+                            <div class="vessel-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Commissioned:</span>
+                                    <span class="detail-value">2460</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Home Port:</span>
+                                    <span class="detail-value">Submarine Base Alpha</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Fleet:</span>
+                                    <span class="detail-value">Submarine Force</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Status:</span>
+                                    <span class="detail-value">Deep Operations</span>
+                                </div>
+                            </div>
+                            <p class="vessel-description">
+                                Nuclear-powered attack submarine equipped with advanced torpedoes and cruise missiles. 
+                                Conducts undersea warfare and intelligence gathering operations.
+                            </p>
+                            <a href="#" class="vessel-link">View Details →</a>
+                        </div>
+                    </div>
+
+                    <!-- Support Vessels -->
+                    <div class="vessel-card filterable-item" data-category="support" data-fleet="xnn" data-status="active">
+                        <img src="https://kimi-web-img.moonshot.cn/img/shipspottingmag.com/97d749dc4706f0798fc38cf8d2149dbe7dc4aa09.jpg" alt="IXN Supply Master" class="vessel-image">
+                        <div class="vessel-content">
+                            <div class="vessel-header">
+                                <h4 class="vessel-name">IXN Supply Master</h4>
+                                <span class="vessel-class">Fast Combat Support Ship</span>
+                            </div>
+                            <div class="vessel-badges">
+                                <span class="vessel-badge badge-xnn">XNN</span>
+                                <span class="vessel-badge badge-active">Active</span>
+                            </div>
+                            <div class="vessel-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Commissioned:</span>
+                                    <span class="detail-value">2459</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Home Port:</span>
+                                    <span class="detail-value">Logistics Harbor</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Fleet:</span>
+                                    <span class="detail-value">Service Force</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Status:</span>
+                                    <span class="detail-value">Underway</span>
+                                </div>
+                            </div>
+                            <p class="vessel-description">
+                                Fast combat support ship providing fuel, ammunition, and supplies to fleet 
+                                vessels. Essential for sustained naval operations at sea.
+                            </p>
+                            <a href="#" class="vessel-link">View Details →</a>
+                        </div>
+                    </div>
+
+                    <!-- Patrol Vessels -->
+                    <div class="vessel-card filterable-item" data-category="patrol" data-fleet="xnn" data-status="active">
+                        <img src="https://kimi-web-img.moonshot.cn/img/generalequipment.info/6f3506c354f12dc20905e321e8f8c283731923df.gif" alt="IXN Coastal Guardian" class="vessel-image">
+                        <div class="vessel-content">
+                            <div class="vessel-header">
+                                <h4 class="vessel-name">IXN Coastal Guardian</h4>
+                                <span class="vessel-class">Coastal Patrol Vessel</span>
+                            </div>
+                            <div class="vessel-badges">
+                                <span class="vessel-badge badge-xnn">XNN</span>
+                                <span class="vessel-badge badge-active">Active</span>
+                            </div>
+                            <div class="vessel-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Commissioned:</span>
+                                    <span class="detail-value">2464</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Home Port:</span>
+                                    <span class="detail-value">Coastal Station 7</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Fleet:</span>
+                                    <span class="detail-value">Coastal Defense</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Status:</span>
+                                    <span class="detail-value">Patrol</span>
+                                </div>
+                            </div>
+                            <p class="vessel-description">
+                                Fast patrol vessel designed for coastal surveillance and interdiction. Equipped 
+                                with advanced sensors and small arms for maritime security operations.
+                            </p>
+                            <a href="#" class="vessel-link">View Details →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="resources/naval-seal.png" alt="Imperial Naval Seal" class="footer-seal">
+                    <h4>Imperial Xana Navy</h4>
+                    <p>Maritime defense force of the Great Holy Xanarcica Empire, protecting imperial interests across all seas.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About the Navy</a>
+                    <a href="leadership.html">Leadership</a>
+                    <a href="fleets.html">Fleet Information</a>
+                    <a href="operations.html">Operations</a>
+                    <a href="careers.html">Join the Navy</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Public Affairs</h4>
+                    <p>Office of Naval Communications</p>
+                    <p>Imperial Naval Headquarters</p>
+                    <p>Xanarcica City, District 1</p>
+                    <a href="mailto:public.affairs@xana.navy">public.affairs@xana.navy</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal Notice</h4>
+                    <p>All content subject to Xaiar Law and Imperial Naval Regulations. Unauthorized reproduction or distribution of classified materials is prohibited.</p>
+                    <a href="#" onclick="return false;">Privacy Policy</a>
+                    <a href="#" onclick="return false;">Terms of Service</a>
+                    <a href="#" onclick="return false;">Accessibility</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2478 Imperial Xana Navy. All rights reserved. | Imperial Date: 2478.3.15 | Standard Date: January 11, 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
